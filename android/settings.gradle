@@ -1,0 +1,3 @@
+rootProject.name = 'myBiolaApp'
+
+include ':app'
