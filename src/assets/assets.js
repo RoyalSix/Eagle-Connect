@@ -1,0 +1,1 @@
+module.exports.biolaLogo = require('./biolaLogo.png');
