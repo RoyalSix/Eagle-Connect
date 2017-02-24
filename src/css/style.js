@@ -18,7 +18,7 @@ module.exports = StyleSheet.create({
         fontFamily: 'Arial Rounded MT Bold',
         textShadowOffset:{ width: 0, height: 3 },
         textShadowRadius:2,
-        textShadowColor:'black'
+        textShadowColor:'black',
     },
     biolaLogo: {
         alignSelf: 'center',
@@ -54,5 +54,8 @@ module.exports = StyleSheet.create({
         borderRadius: 5,
         shadowOpacity: .8,
         shadowOffset: { width: 0, height: 3 },
+        marginLeft: width / 12,
+        fontSize:30,
+        paddingLeft:10
     }
 });

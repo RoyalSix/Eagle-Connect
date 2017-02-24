@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  TextInput
 } from 'react-native';
 
 const styles = require('css');
@@ -29,15 +30,15 @@ export default class myBiolaApp extends Component {
             <Text style={styles.loginSubHeading}>
               Username
           </Text>
-            <View style={styles.loginTextField}>
-            </View>
+            <TextInput autoCapitalize={'none'} autoCorrect={false} style={styles.loginTextField}>
+            </TextInput>
           </View>
           <View style={styles.loginSubHeadingContainer}>
             <Text style={styles.loginSubHeading}>
               Password
           </Text>
-            <View style={styles.loginTextField}>
-            </View>
+            <TextInput autoCapitalize={'none'} autoCorrect={false} returnKeyType={'done'} secureTextEntry={true} style={styles.loginTextField}>
+            </TextInput>
           </View>
         </View>
       </View>
