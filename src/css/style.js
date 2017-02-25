@@ -8,7 +8,7 @@ module.exports = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FF5E5E",
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
     },
     loginHeading: {
         fontSize: 30,
@@ -24,8 +24,7 @@ module.exports = StyleSheet.create({
         alignSelf: 'center',
         height: height / 3.5,
         width: width / 2,
-        marginTop: 100,
-        marginBottom: 25,
+        marginTop: height/6,
         shadowOpacity: .8,
         shadowOffset: { width: 0, height: 3 },
     },
@@ -49,7 +48,7 @@ module.exports = StyleSheet.create({
     loginTextField: {
         flexDirection: 'row',
         backgroundColor: 'white',
-        height: 50,
+        height: 40,
         width: width / 1.2,
         borderRadius: 5,
         shadowOpacity: .8,
