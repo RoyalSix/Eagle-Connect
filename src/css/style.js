@@ -46,7 +46,7 @@ module.exports = StyleSheet.create({
         marginVertical: 10
     },
     loginTextField: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         backgroundColor: 'white',
         height: 40,
         width: width / 1.2,
