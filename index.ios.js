@@ -9,5 +9,5 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import App from './src/js/Components/Login.js';
+import App from './src/js/Containers/AppContainer.js';
 AppRegistry.registerComponent('myBiolaApp', () => App);

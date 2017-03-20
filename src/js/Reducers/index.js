@@ -1,9 +1,13 @@
-import navigationReducer from './navigationReducer';
-import messageReducer from './messageReducer';
-import searchViewReducer from './searchViewReducer'
+import chapelReducer from './chapelReducer';
+import newsReducer from './newsReducer';
+import eventReducer from './eventReducer';
+import prayerReducer from './prayerReducer';
+import diningReducer from './diningReducer';
 
 export {
-  navigationReducer,
-  messageReducer,
-  searchViewReducer
+  chapelReducer,
+  newsReducer,
+  eventReducer,
+  prayerReducer,
+  diningReducer
 };
