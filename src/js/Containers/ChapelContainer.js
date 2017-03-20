@@ -15,20 +15,31 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 20,
     },
+    separator: {
+        flex: 1,
+        height: 1,
+        backgroundColor: '#8E8E8E',
+    },
+    heading:{
+        fontSize:30,
+        backgroundColor:'black',
+        color:'white',
+        textAlign:'center'
+    }
 });
 
 class ChapelContainer extends Component {
     renderRow(data) {
         return (
-            <View style={{borderWidth:2, borderColor:'black', marginVertical:10, marginHorizontal:10}}>
-                <Text style={{fontSize:20}}>{data.title}</Text>
-                <Text style={{fontSize:15}}>{data.speaker}</Text>
-                <Text style={{fontSize:15}}>{data.location}</Text>
-                <Text style={{fontSize:12}}>{data.date}</Text>
+            <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
+                <Text style={{ fontSize: 20 }}>{data.title}</Text>
+                <Text style={{ fontSize: 15 }}>{data.speaker}</Text>
+                <Text style={{ fontSize: 15 }}>{data.location}</Text>
+                <Text style={{ fontSize: 12 }}>{data.date}</Text>
             </View>
         )
     }
-    
+
     render() {
         var listSource =
             new ListView.DataSource({
@@ -41,6 +52,8 @@ class ChapelContainer extends Component {
                 style={styles.container}
                 dataSource={ds}
                 renderRow={this.renderRow}
+                renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+                renderHeader={() => <Text style={styles.heading}>CHAPELS</Text>}
             />
         )
     }

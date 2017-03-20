@@ -23,9 +23,7 @@ export function recieveChapels(chapels) {
 }
 
 export function getChapels(callback) {
-    fetch('https://www.biola.edu/chapel').then((response) => {
-        return response.blob();
-    }).then(function (myBlob) {
+    fetch('https://www.biola.edu/chapel').then((response) => response.blob()).then(function (myBlob) {
         var reader = new FileReader();
         reader.addEventListener("loadend", function (result) {
             var htmlString = result.srcElement.result;
