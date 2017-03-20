@@ -18,7 +18,13 @@ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
 
+import * as chapelActions from '../Actions/chapelActions';
+
+
 export default class App extends Component {
+    componentWillMount() {
+        store.dispatch(chapelActions.startChapelLoad());
+    }
     render() {
         return (
             <Provider store={store}>
