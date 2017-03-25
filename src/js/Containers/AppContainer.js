@@ -11,7 +11,7 @@ import * as reducers from '../Reducers';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import ChapelContainer from './ChapelContainer';
+import NavigationContainer from './NavigationContainer';
 
 /**We need these in order to create a store and use async actions */
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
@@ -28,7 +28,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <ChapelContainer dispatch={store.dispatch} />
+                <NavigationContainer dispatch={store.dispatch} />
             </Provider>
         )
     }
