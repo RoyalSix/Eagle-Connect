@@ -31,22 +31,26 @@ export function getChapels(callback) {
             var chapelListItems = chapelUnorderedList[i].querySelect('li');
             for (var j = 0; j < chapelListItems.length; j++) {
                 var chapelSplit = chapelListItems[j].childNodes;
-                var date = chapelSplit[0].textContent;
+                var date = "";
+                var title = "";
+                var speaker = ""; 
+                var location = "";
                 try {
-                    var title = chapelSplit[1].querySelect('a')[0].textContent;
-                    var speaker = chapelSplit[1].querySelect('.subtitle')[0].textContent;
-                    var location = chapelSplit[1].querySelect('.location')[0].textContent;
-                    chapelList.push({
-                        date,
-                        title,
-                        speaker,
-                        location
-                    });
+                    date = chapelSplit[0].textContent;
+                    location = chapelSplit[1].querySelect('.location')[0].textContent;
+                    title = chapelSplit[1].querySelect('a')[0].textContent;
+                    speaker = chapelSplit[1].querySelect('.subtitle')[0].textContent;
                 } catch (e) {
-                    console.log(e)
+                    
                 }
+                chapelList.push({
+                    date,
+                    title,
+                    speaker,
+                    location
+                });
             }
         }
-        callback(chapelList)
+        callback(chapelList);
     });
 } 
