@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
-var {height, width} = Dimensions.get('window');
+var { height, width } = Dimensions.get('window');
 module.exports = StyleSheet.create({
     container: {
         flex: 1,
@@ -16,15 +16,15 @@ module.exports = StyleSheet.create({
         margin: 10,
         color: 'white',
         fontFamily: 'Arial Rounded MT Bold',
-        textShadowOffset:{ width: 0, height: 3 },
-        textShadowRadius:2,
-        textShadowColor:'black',
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 2,
+        textShadowColor: 'black',
     },
     biolaLogo: {
         alignSelf: 'center',
         height: height / 3.5,
         width: width / 2,
-        marginTop: height/6,
+        marginTop: height / 6,
         shadowOpacity: .8,
         shadowOffset: { width: 0, height: 3 },
     },
@@ -35,9 +35,9 @@ module.exports = StyleSheet.create({
         fontFamily: 'Arial Rounded MT Bold',
         alignSelf: 'flex-start',
         marginLeft: width / 12,
-        textShadowOffset:{ width: 0, height: 3 },
-        textShadowRadius:2,
-        textShadowColor:'black'
+        textShadowOffset: { width: 0, height: 3 },
+        textShadowRadius: 2,
+        textShadowColor: 'black'
     },
     loginSubHeadingContainer: {
         flexDirection: 'column',
@@ -54,7 +54,22 @@ module.exports = StyleSheet.create({
         shadowOpacity: .8,
         shadowOffset: { width: 0, height: 3 },
         marginLeft: width / 12,
-        fontSize:30,
-        paddingLeft:10
+        fontSize: 30,
+        paddingLeft: 10
+    },
+    chapelContainer: {
+        flex: 1,
+        marginTop: 20,
+    },
+    chapelSeparator: {
+        flex: 1,
+        height: 1,
+        backgroundColor: '#8E8E8E',
+    },
+    chapelHeading: {
+        fontSize: 30,
+        backgroundColor: 'black',
+        color: 'white',
+        textAlign: 'center'
     }
 });
