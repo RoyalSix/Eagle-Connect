@@ -15,7 +15,8 @@
     "react-native-scrollable-tab-view": "^0.7.3",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "util": "^0.10.3"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
