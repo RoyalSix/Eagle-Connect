@@ -41,7 +41,6 @@ export function getChapels(callback) {
                     title = chapelSplit[1].querySelect('a')[0].textContent;
                     speaker = chapelSplit[1].querySelect('.subtitle')[0].textContent;
                 } catch (e) {
-                    
                 }
                 chapelList.push({
                     date,
