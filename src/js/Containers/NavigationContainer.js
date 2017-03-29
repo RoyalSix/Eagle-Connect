@@ -35,8 +35,5 @@ class NavigationContainer extends Component {
 const mapStateToProps = (state) => {
     return { ...state.chapelReducer }
 }
-// const mapDispatchToProps = (dispatch, ownProps) => {
-
-// }
 
 export default connect(mapStateToProps)(NavigationContainer)
