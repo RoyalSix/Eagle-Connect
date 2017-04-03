@@ -9,6 +9,9 @@ import style from 'css';
 
 //Create component to be rendered in container and send down props for data
 export default class EventContainer extends Component {
+    render() {
+        return (<div></div>);
+    }
     
 }
 
