@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 //These are required for react to work
 import { connect } from 'react-redux'
 /**
- * This allows us to get acceess to the store from the state we pass 
+ * This allows us to get access to the store from the state we pass 
  * {@see mapStateToProps}
  */
 import { ListView } from 'react-native';
