@@ -12,12 +12,12 @@ export function startEventLoad() {
     }
 }
 
-// //Creating action that will send the events to the store
-// export function receiveEventLoad() {
-//     return {
+//Creating action that will send the events to the store
+export function receiveEventLoad() {
+    return {
 
-//     }
-// }
+    }
+}
 
 //Creating action that will get HTML data
 export function getEvents() {
