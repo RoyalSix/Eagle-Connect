@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux'
 import ChapelContainer from './ChapelContainer';
+import EventContainer from './EventContainer';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ChapelTab from '../Components/TabBar/ChapelTab';
 
@@ -18,6 +19,8 @@ class NavigationContainer extends Component {
         switch (name) {
             case 'CHAPELS':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
+            case 'EVENTS':
+                return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;  
                 break;
         }
     }
@@ -27,6 +30,7 @@ class NavigationContainer extends Component {
                 onChangeTab={this.handleChangeTab} tabBarBackgroundColor='black'
                 locked={true}>
                 <ChapelContainer tabLabel="CHAPELS" {...this.props}/>
+                <EventContainer tabLabel="EVENTS" {...this.props}/>
             </ScrollableTabView>
         )
     }
@@ -34,6 +38,7 @@ class NavigationContainer extends Component {
 
 const mapStateToProps = (state) => {
     return { ...state.chapelReducer }
+    //return { ...state.eventReducer }
 }
 
 export default connect(mapStateToProps)(NavigationContainer)
