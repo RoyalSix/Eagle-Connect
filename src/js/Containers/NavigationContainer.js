@@ -25,7 +25,8 @@ class NavigationContainer extends Component {
         return (
             <ScrollableTabView tabBarPosition={'bottom'} initialPage={0} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
                 onChangeTab={this.handleChangeTab} tabBarBackgroundColor='black'
-                locked={true}>
+                locked={true} style={{marginBottom:-1}}
+                >
                 <ChapelContainer tabLabel="CHAPELS" {...this.props}/>
             </ScrollableTabView>
         )
