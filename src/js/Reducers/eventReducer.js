@@ -9,7 +9,13 @@ export function eventReducer(state = {
         case types.START_EVENT_LOAD:
         return {
             ...state,
-            events:action.events
+            loadingEvents:true
+        }
+                case types.RECEIVE_EVENT_LOAD:
+        return {
+            ...state,
+            events:action.events,
+            loadingEvents:false
         }
         default:
             return state;
