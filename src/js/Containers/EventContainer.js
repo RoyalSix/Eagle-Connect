@@ -17,6 +17,6 @@ import { ListView } from 'react-native';
 //Create container to receive props from reducer 
 class EventContainer extends Component {
     render() {
-        return (<div></div>)
+        return (<View></View>)
     }
 }

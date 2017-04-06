@@ -8,6 +8,7 @@ import * as types from './actionTypes';
 import { DOMParser } from 'react-native-html-parser';
 //This is an external library used to parse html. React native does not 
 //support this natively
+import * as API from '../API'
 
 
 /**
@@ -67,7 +68,7 @@ export function recieveChapels(chapels) {
  * @param {function} callback 
  */
 export function getChapels(callback) {
-    getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
+    API.getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
         //I abstracted out the react native fetch call for you no need to worry
         //about the details of using fetch and promises
         let doc = new DOMParser().parseFromString(htmlString, 'text/html');
@@ -153,14 +154,4 @@ export function getArrayOfChapelsFromNodeList(nodeList) {
         }
     }
     return chapelList;
-}
-
-/**
- * @description Abstracted the methods to recieve the string of an html website from the url
- * 
- * @param {string} url 
- * @param {function} callback 
- */
-export function getHTMLFromURL(url, callback) {
-    fetch(url).then((response) => response.text()).then((htmlString) => callback(htmlString));
 }
