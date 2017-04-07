@@ -11,16 +11,16 @@ import { DOMParser } from 'react-native-html-parser';
 
 
 /**
- * @description - This is a redux action that will initiate a chapel load.
+ * @description - This is a redux action that will initiate a dining load.
  * This does two things for us:
- *  - This will allow us to have a field in the store that says chapels are loading
+ *  - This will allow us to have a field in the store that says dining meals are loading
  *      if we ever wanted to show a loading screen.
- *  - This will allow us to fetch the chapels from an HTTP request (fetch) and send
+ *  - This will allow us to fetch the dining from an HTTP request (fetch) and send
  *      them back to the store asychoronously
  */
 export function startDinigLoad() {
     return function (dispatch) {
-        /*The dispatch fucntion allows us to call other redux actions
+        /*The dispatch function allows us to call other redux actions
          * Also referred to the dispatcher 
          * This will allow us to also to perform asychoronous actions
          * {@link http://redux.js.org/docs/advanced/AsyncActions.html#async-action-creators}
@@ -31,14 +31,14 @@ export function startDinigLoad() {
         })
 
         /**
-         * This is the function that gets called to get the chapels, 
-         * when the callback is called (once the chapels are received)
-         * then recieveChapels will be called with that same data being passed
+         * This is the function that gets called to get the meals, 
+         * when the callback is called (once the meals are received)
+         * then receiveDining will be called with that same data being passed
          * {@link https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd}
          */
         return getDiningItems((content) => {
-            //We have access to chapels here because of the callback
-            dispatch(recieveDiningItems(content))
+            //We have access to dining here because of the callback
+            dispatch(receiveDiningItems(content))
         })
     }
 }
@@ -48,25 +48,25 @@ export function startDinigLoad() {
  * So that our components can use it as props
  * The type 'RECIEVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
  * 
- * @param {object} chapels 
+ * @param {object} dining 
  */
-export function recieveDiningItems(chapels) {
+export function receiveDiningItems(dining) {
     return {
-        type: types.RECIEVE_DINING_LOAD,
+        type: types.RECEIVE_DINING_LOAD,
         loadingDining: false,
-        diningItems: chapels
+        diningItems: dining
     }
 }
 
 
 /**
- * @description - This redux action gets the chapels from an html string and returns them
+ * @description - This redux action gets the dining from an html string and returns them
  * in a callback.
  * 
  * @param {function} callback 
  */
 export function getDiningItems(callback) {
-    getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
+    getHTMLFromURL('http://cafebiola.bonappetit.com', function (htmlString) {
         debugger;
         //I abstracted out the react native fetch call for you no need to worry
         //about the details of using fetch and promises
