@@ -95,7 +95,7 @@ export function getDiningItems(callback) {
         //var allChapels = activeChapels.concat(otherChapels);
 
         //Simply combinig the two arrays
-        callback(allDining);
+        callback(allChapels);
         //Calling the function in the @see startChapelLoad function which
         //allows us to return it to the dispatch
     });
