@@ -9,8 +9,6 @@ import {
   AppRegistry,
 } from 'react-native';
 import App from './src/js/Containers/AppContainer.js';
-import fetch from 'node-fetch';
-window.fetch = fetch;
 
 
 export default class myBiolaApp extends Component {

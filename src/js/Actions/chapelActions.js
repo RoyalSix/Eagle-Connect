@@ -68,31 +68,17 @@ export function recieveChapels(chapels) {
  * @param {function} callback 
  */
 export function getChapels(callback) {
-    API.getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
-        //I abstracted out the react native fetch call for you no need to worry
-        //about the details of using fetch and promises
-        let doc = new DOMParser().parseFromString(htmlString, 'text/html');
-        //This function returns a document node from an html string, which
-        //is a stringified version of an html document node, but you can'text
-        //call functions on a string so we need to create a document
+    cafeObjects = {};
+    API.getJSONFromURL('legacy.cafebonappetit.com/weekly-menu/147727', function (htmlString) {
+        var cafeArray = htmlString.div.div[1].div;
+        cafeArray.forEach(function (element) {
+            if (element.class == 'row ') {
+                for (var i in element.div) {
 
-        //We are separating these two because the chapels are seprarted by different
-        //class names on the website.
-        var currentWeekChapelsNodes = doc.getElementsByClassName('chapel-list active');
-        var otherChapelsNodes = doc.getElementsByClassName('chapel-list');
-        //This is a list of nodes that have the class 'chapel-list active'
-        //You will have to inspect the html on the site you are getting the html
-        //from to see which class name(s) you will need.
-
-        var activeChapels = getArrayOfChapelsFromNodeList(currentWeekChapelsNodes);
-        var otherChapels = getArrayOfChapelsFromNodeList(otherChapelsNodes);
-        //Abstracted a way to return a simple array of the chapel objects 
-        //with the speaker, location, date, time, and title from a list node.
-        //check function below @see getArrayOfChapelsFromNodeList
-
-        var allChapels = activeChapels.concat(otherChapels);
-        //Simply combinig the two arrays
-        callback(allChapels);
+                }
+            }
+        });
+        callback(cafeObjects);
         //Calling the function in the @see startChapelLoad function which
         //allows us to return it to the dispatch
     });
