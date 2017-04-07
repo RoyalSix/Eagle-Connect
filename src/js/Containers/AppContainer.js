@@ -21,7 +21,7 @@ const store = createStoreWithMiddleware(reducer);
 import * as chapelActions from '../Actions/chapelActions';
 
 //Call the action you created to start the load 
-import * as eventActions from '../Actions/eventActions';
+import * as eventsActions from '../Actions/eventsActions';
 import * as dinigActions from '../Actions/diningActions';
 
 
