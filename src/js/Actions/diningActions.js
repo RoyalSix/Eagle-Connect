@@ -66,18 +66,19 @@ export function receiveDiningItems(dining) {
  * @param {function} callback 
  */
 export function getDiningItems(callback) {
+<<<<<<< HEAD
     getHTMLFromURL('http://cafebiola.bonappetit.com', function (htmlString) {
+=======
+    //This yahoo http request gets the html back in a JSON format which will be eaiser to parse
+    getHTMLFromURL('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Flegacy.cafebonappetit.com/weekly-menu/147727%2F%22&format=json', function (htmlString) {
+        //even though it returns a JSON format its still a stringifyd
+        //version of if so we have to re convert it to JSON
+        JSON.parse(htmlString)
+>>>>>>> 602b7514c7ab28396d4de7f326eb2e99f333e6b2
         debugger;
-        //I abstracted out the react native fetch call for you no need to worry
-        //about the details of using fetch and promises
-        let doc = new DOMParser().parseFromString(htmlString, 'text/html');
-        //This function returns a document node from an html string, which
-        //is a stringified version of an html document node, but you can'text
-        //call functions on a string so we need to create a document
-
         //We are separating these two because the chapels are seprarted by different
         //class names on the website.
-        var currentWeekChapelsNodes = doc.getElementsByClassName('chapel-list active');
+        var currentWeekChapelsNodes = doc.getElementsByClassName('station-item');
         var otherChapelsNodes = doc.getElementsByClassName('chapel-list');
         //This is a list of nodes that have the class 'chapel-list active'
         //You will have to inspect the html on the site you are getting the html
