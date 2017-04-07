@@ -1,9 +1,9 @@
 
 /**
- * @description Abstracted the methods to recieve the string of an html website from the url
+ * @description Abstracted the methods to recieve the JSON object of an html website from the url
  * 
- * @param {string} url 
- * @param {function} callback 
+ * @param {string} url - http:// ommitted
+ * @param {function} callback - callback of function after recieveing data
  */
 export function getJSONFromURL(url, callback) {
     var encodedURL = encodeURI(url);
@@ -15,4 +15,14 @@ export function getJSONFromURL(url, callback) {
             callback(null)
         }
     });
+}
+
+/**
+ * @description Abstracted the methods to recieve the string of an html website from the url
+ * 
+ * @param {string} url 
+ * @param {function} callback 
+ */
+export function getHTMLFromURL(url, callback) {
+    fetch(url).then((response) => response.text()).then((htmlString) => callback(htmlString));
 }
