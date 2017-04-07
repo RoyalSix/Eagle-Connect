@@ -25,7 +25,6 @@ export function startChapelLoad() {
          * This will allow us to also to perform asychoronous actions
          * {@link http://redux.js.org/docs/advanced/AsyncActions.html#async-action-creators}
          */
-
         dispatch({
             type: types.START_CHAPEL_LOAD,
             loadingChapels: true
