@@ -18,7 +18,7 @@ import { DOMParser } from 'react-native-html-parser';
  *  - This will allow us to fetch the dining from an HTTP request (fetch) and send
  *      them back to the store asychoronously
  */
-export function startDinigLoad() {
+export function startDiningLoad() {
     return function (dispatch) {
         /*The dispatch function allows us to call other redux actions
          * Also referred to the dispatcher 
@@ -66,15 +66,13 @@ export function receiveDiningItems(dining) {
  * @param {function} callback 
  */
 export function getDiningItems(callback) {
-<<<<<<< HEAD
-    getHTMLFromURL('http://cafebiola.bonappetit.com', function (htmlString) {
-=======
+
     //This yahoo http request gets the html back in a JSON format which will be eaiser to parse
     getHTMLFromURL('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Flegacy.cafebonappetit.com/weekly-menu/147727%2F%22&format=json', function (htmlString) {
         //even though it returns a JSON format its still a stringifyd
         //version of if so we have to re convert it to JSON
         JSON.parse(htmlString)
->>>>>>> 602b7514c7ab28396d4de7f326eb2e99f333e6b2
+
         debugger;
         //We are separating these two because the chapels are seprarted by different
         //class names on the website.
