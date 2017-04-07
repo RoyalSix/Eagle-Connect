@@ -22,11 +22,13 @@ import * as chapelActions from '../Actions/chapelActions';
 
 //Call the action you created to start the load 
 import * as eventActions from '../Actions/eventActions';
+import * as dinigActions from '../Actions/diningActions';
 
 
 export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
+        store.dispatch(dinigActions.startDinigLoad());
     }
     render() {
         return (
