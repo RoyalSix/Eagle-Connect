@@ -30,7 +30,7 @@ export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
         store.dispatch(dinigActions.startDinigLoad());
-        store.dispatch(newsActions.startnewsLoad());
+        store.dispatch(newsActions.startNewsLoad());
         store.dispatch(eventsActions.startEventsLoad());
     }
     render() {
