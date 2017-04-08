@@ -6,14 +6,14 @@ import { DOMParser } from 'react-native-html-parser';
 //support this natively
 
 //Creating action that will start the load
-export function startEventLoad() {
+export function startEventsLoad() {
     return function (dispatch) {
 
     }
 }
 
 //Creating action that will send the events to the store
-export function receiveEventLoad() {
+export function receiveEventsLoad() {
     return {
 
     }

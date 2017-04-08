@@ -1,4 +1,3 @@
-//Importing what I need from React, React-native, and CSS
 import React, { Component } from 'react';
 import {
     Text,
@@ -7,12 +6,29 @@ import {
 } from 'react-native';
 import style from 'css';
 
-//Create component to be rendered in container and send down props for data
-export default class EventContainer extends Component {
-    render() {
-        return (<View></View>);
+export default class EventsContainer extends Component {
+    renderRow(data) {
+        return (
+            <View>
+            </View>
+        )
     }
-    
+    renderHeader() {
+        return <Text style={style.chapelHeading}>EVENTS</Text>;
+    }
+    renderSeparator(sectionId, rowId){
+        return <View key={rowId} style={style.chapelSeparator} />;
+    }
+    render() {
+        return (
+            <ListView
+                enableEmptySections
+                style={style.chapelContainer}
+                dataSource={this.props.dataSource}
+                renderRow={this.renderRow}
+                renderSeparator={this.renderSeparator}
+                renderHeader={this.renderHeader}
+            />
+        )
+    }
 }
-
-
