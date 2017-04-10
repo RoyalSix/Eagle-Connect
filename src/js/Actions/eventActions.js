@@ -31,19 +31,21 @@ export function receiveEventLoad(events) {
 //Creating action that will get HTML data
 export function getEvents(callback) {
     getHTMLFromURL('https://www.biola.edu/events/search?page=%5Binsert', function (htmlString) {
-
+   
         //Document created for parsing html
         let doc = new DOMParser().parseFromString(htmlString, 'text/html');
-
         //Get parent class name for each event item on website
         //This is the common class name for each event 
         var eventNodes = doc.getElementsByClassName('event-item event-list-item');
 
+        //Get parent class name for each event item on website
+        //This is the common class name for each event
+
+        //var eventNodes = doc.getElementsByClassName('event-item event-list-item');
         //var titles = doc.getElementsByClassName('title');
 
         var allEvents = getArrayOfEventsFromNodeList(eventNodes);
         callback(allEvents);
-
     });
 }
 
@@ -56,10 +58,14 @@ export function getArrayOfEventsFromNodeList(nodeList) {
     //Create two loops
     for (var i = 0; i < nodeList.length; i++) {
         var eventListItems = nodeList[i].querySelect('li');
+
+        //var eventListTitle = nodelist[i].querySelect('a');
         //For first loop, run until list items are found ('li')
 
         for (var j = 0; j < eventListItems.length; j++) {
             var eventSplit = eventListItems[j].childNodes;
+            
+            //var eventSplit2 = eventListTitle[j].childNodes;
             //In second loop, split the different event items into an array
 
             //Create and initialize event items as empty strings
@@ -69,13 +75,14 @@ export function getArrayOfEventsFromNodeList(nodeList) {
             var speaker = "";
 
             try {
-                //Use text content to make title and speaker primary on list
+                //Use text content to make date and time 
+                date = eventSplit[0].textContent;
+                time = eventSplit[1].querySelect('.fa fa-clock-o')[0].textContent;
+                
+                //Use text content to make title and speaker 
                 title = eventSplit[1].querySelect('.title')[0].textContent;
                 speaker = eventSplit[1].querySelect('.subtitle')[0].textContent;
 
-                //Use text content to make date and time secondary on list
-                date = eventSplit[1].querySelect('.fa fa-calendar')[0].textContent;
-                time = eventSplit[1].querySelect('.fa fa-clock-o')[0].textContent;
             } catch (e) {
 
             }
