@@ -78,21 +78,21 @@ export function getDiningItems(callback) {
         //We are separating these two because the chapels are seprarted by different
         //class names on the website.
 
-        //var currentWeekChapelsNodes = doc.getElementsByClassName('station-item');
-        //var otherChapelsNodes = doc.getElementsByClassName('chapel-list');
+        var currentWeekChapelsNodes = doc.getElementsByClassName('station-item');
+        var otherChapelsNodes = doc.getElementsByClassName('chapel-list');
 
         //This is a list of nodes that have the class 'chapel-list active'
         //You will have to inspect the html on the site you are getting the html
         //from to see which class name(s) you will need.
 
-        //var activeChapels = getArrayOfChapelsFromNodeList(currentWeekChapelsNodes);
-        //var otherChapels = getArrayOfChapelsFromNodeList(otherChapelsNodes);
+        var activeChapels = getArrayOfChapelsFromNodeList(currentWeekChapelsNodes);
+        var otherChapels = getArrayOfChapelsFromNodeList(otherChapelsNodes);
 
         //Abstracted a way to return a simple array of the chapel objects 
         //with the speaker, location, date, time, and title from a list node.
         //check function below @see getArrayOfChapelsFromNodeList
 
-        //var allChapels = activeChapels.concat(otherChapels);
+        var allChapels = activeChapels.concat(otherChapels);
 
         //Simply combinig the two arrays
         callback(allChapels);
