@@ -13,6 +13,7 @@ import ChapelContainer from './ChapelContainer';
 import DiningContainer from './DiningContainer';
 import EventsContainer from './EventsContainer';
 import NewsContainer from './NewsContainer';
+
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ChapelTab from '../Components/TabBar/ChapelTab';
 

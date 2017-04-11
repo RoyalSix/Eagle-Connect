@@ -33,7 +33,7 @@ class EventsContainer extends Component {
         /*
          * This is going to be the data that will be sent to the child component
          * this.props.chapels is defined in chapelActions and is getting fetched in app container
-         * From the action it goes to the reducer by the tyoe name RECIEVE_CHAPEL_LOAD
+         * From the action it goes to the reducer by the tyoe name RECEIVE_CHAPEL_LOAD
          * and then merged in the store
          * This is a standard redux flow Action -> Reducer -> Container (this file) -> Component (Chapel.js)
          */
