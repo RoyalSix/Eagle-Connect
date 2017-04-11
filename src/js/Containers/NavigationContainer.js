@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux'
 import ChapelContainer from './ChapelContainer';
+import DiningContainer from './DiningContainer';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ChapelTab from '../Components/TabBar/ChapelTab';
 
@@ -17,6 +18,9 @@ class NavigationContainer extends Component {
     renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
         switch (name) {
             case 'CHAPELS':
+                return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
+                break;
+            case 'DINING':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
                 break;
         }
@@ -27,6 +31,7 @@ class NavigationContainer extends Component {
                 onChangeTab={this.handleChangeTab} tabBarBackgroundColor='black'
                 locked={true}>
                 <ChapelContainer tabLabel="CHAPELS" {...this.props}/>
+                <DiningContainer tabLabel="DINING" {...this.props}/>
             </ScrollableTabView>
         )
     }

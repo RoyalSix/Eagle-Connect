@@ -1,10 +1,25 @@
+//I THINK THIS IS DONE
+
 import * as types from '../Actions/actionTypes';
 
 export function diningReducer(state = {
-    loadingDining:false,
-    diningItems:{}
+    dining: [],
+    loadingDining: false
 }, action) {
     switch (action.type) {
+        case types.START_CHAPEL_LOAD:
+
+            return {
+                ...state,
+                loadingDining: true
+            }
+            break;
+        case types.RECIEVE_CHAPEL_LOAD:
+            return {
+                ...state,
+                loadingDining: false,
+                dining:action.dining
+            }
         default:
             return state;
             break;
