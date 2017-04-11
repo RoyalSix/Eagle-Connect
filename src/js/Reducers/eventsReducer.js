@@ -6,15 +6,13 @@ export function eventReducer(state = {
     events:{}
 }, action) {
     switch (action.type) {
-        case types.START_EVENT_LOAD:
+        case types.START_EVENTS_LOAD:
         return {
             ...state,
-
             events:action.events,
-
             loadingEvents:true
         }
-                case types.RECEIVE_EVENT_LOAD:
+                case types.RECEIVE_EVENTS_LOAD:
         return {
             ...state,
             events:action.events,
