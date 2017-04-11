@@ -1,3 +1,5 @@
+//COMPLETE
+
 import * as types from './actionTypes';
 import { DOMParser } from 'react-native-html-parser';
 
@@ -16,7 +18,7 @@ export function startDiningLoad() {
 }
 
 export function receiveDiningItems(dining) {
-    return {
+    return { 
         type: types.RECEIVE_DINING_LOAD,
         loadingDining: false,
         dining: dining
@@ -31,7 +33,6 @@ export function getDiningItems(callback) {
         var WeeklyDining = DiningDoc.query.results.body.div.div[1].div;
         var allDining = getArrayOfDiningFromNodeList(WeeklyDining);
 
-        debugger;
         callback(allDining);
         
     });

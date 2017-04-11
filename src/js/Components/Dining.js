@@ -6,21 +6,21 @@ import {
 } from 'react-native';
 import style from 'css';
 
-//NEED TO CHANGE TITLE, SPEAKER, LOCATION, DATE functions.
 export default class DiningContainer extends Component {
     renderRow(data) {
         return (
             <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
-                <Text style={{ fontSize: 20 }}>data.FoodName</Text>
+                <Text style={{ fontSize: 20 }}>{data.FoodName}</Text>
+                <Text style={{ fontSize: 12 }}>{data.FoodDescription}</Text>                                 
             </View>
         )
     }
 
     renderHeader() {
-        return <Text style={style.diningHeading}>DINING</Text>;
+        return <Text style={style.chapelHeading}>DINING</Text>;
     }
     renderSeparator(sectionId, rowId){
-        return <View key={rowId} style={style.diningSeparator} />;
+        return <View key={rowId} style={style.chapelSeparator} />;
     }
     render() {
         return (
@@ -31,7 +31,7 @@ export default class DiningContainer extends Component {
                 renderRow={this.renderRow}
                 renderSeparator={this.renderSeparator}
                 renderHeader={this.renderHeader}
-            />
+            /> 
         )
     }
 }

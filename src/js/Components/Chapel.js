@@ -16,7 +16,7 @@ export default class ChapelContainer extends Component {
                 <Text style={{ fontSize: 12 }}>{data.date}</Text>
             </View>
         )
-    }
+    } 
     renderHeader() {
         return <Text style={style.chapelHeading}>CHAPELS</Text>;
     }

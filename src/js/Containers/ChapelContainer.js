@@ -24,7 +24,7 @@ import Chapel from '../Components/Chapel';
 class ChapelContainer extends Component {
     render() {
         //React render function to be called everytime there is new props
-        var listSource =
+        var listSource = 
             new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
                 sectionHeaderHasChanged: (s1, s2) => s1 !== s2

@@ -1,4 +1,4 @@
-// I THINK THIS IS DONE
+//COMPLETE
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => {
     return { ...state.diningReducer }
 }
 
-export default connect(mapStateToProps)(DiningContainer)
+export default connect(mapStateToProps)(DiningContainer) 

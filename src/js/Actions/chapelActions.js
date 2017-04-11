@@ -8,7 +8,7 @@ import * as types from './actionTypes';
 import { DOMParser } from 'react-native-html-parser';
 //This is an external library used to parse html. React native does not 
 //support this natively
-
+ 
 
 /**
  * @description - This is a redux action that will initiate a chapel load.
