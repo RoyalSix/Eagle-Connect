@@ -11,6 +11,9 @@ import {
 import { connect } from 'react-redux'
 import ChapelContainer from './ChapelContainer';
 import DiningContainer from './DiningContainer';
+import EventsContainer from './EventsContainer';
+import NewsContainer from './NewsContainer';
+
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ChapelTab from '../Components/TabBar/ChapelTab';
 
@@ -23,15 +26,23 @@ class NavigationContainer extends Component {
             case 'DINING':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
                 break;
+            case 'EVENTS':
+                return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
+                break;
+            case 'NEWS':
+                return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
+                break;
         }
     }
     render() {
         return (
             <ScrollableTabView tabBarPosition={'bottom'} initialPage={0} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
                 onChangeTab={this.handleChangeTab} tabBarBackgroundColor='black'
-                locked={true}>
-                <ChapelContainer tabLabel="CHAPELS" {...this.props}/>
-                <DiningContainer tabLabel="DINING" {...this.props}/>
+                locked={true} style={{ marginBottom: -1 }}>
+                <ChapelContainer tabLabel="CHAPELS" {...this.props} />
+                <DiningContainer tabLabel="DINING" {...this.props} />
+                <NewsContainer tabLabel="NEWS" {...this.props} />
+                <EventsContainer tabLabel="EVENTS" {...this.props} />
             </ScrollableTabView>
         )
     }

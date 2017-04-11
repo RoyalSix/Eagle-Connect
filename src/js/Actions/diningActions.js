@@ -1,7 +1,6 @@
-//COMPLETE
-
 import * as types from './actionTypes';
 import { DOMParser } from 'react-native-html-parser';
+import * as API from '../API'
 
 export function startDiningLoad() {
     return function (dispatch) {
@@ -26,7 +25,6 @@ export function receiveDiningItems(dining) {
 }
 
 export function getDiningItems(callback) {
-
     getHTMLFromURL('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Flegacy.cafebonappetit.com/weekly-menu/147727%2F%22&format=json', function (data) {
         
         var DiningDoc = JSON.parse(data);

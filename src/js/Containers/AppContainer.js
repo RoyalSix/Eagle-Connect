@@ -22,12 +22,16 @@ import * as chapelActions from '../Actions/chapelActions';
 
 //Call the action you created to start the load 
 import * as eventActions from '../Actions/eventActions';
-import * as diningActions from '../Actions/diningActions';
+import * as eventsActions from '../Actions/eventsActions';
+import * as dinigActions from '../Actions/diningActions';
+import * as newsActions from '../Actions/newsActions';
 
 export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
-        store.dispatch(diningActions.startDiningLoad());
+        store.dispatch(dinigActions.startDinigLoad());
+        store.dispatch(newsActions.startNewsLoad());
+        store.dispatch(eventsActions.startEventsLoad());
     }
     render() {
         return (

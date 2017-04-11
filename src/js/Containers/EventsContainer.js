@@ -18,10 +18,10 @@ import { ListView } from 'react-native';
 //This is the component that we will need to create a List ListView
 //type of datasource to feed to the component
 //{@link https://facebook.github.io/react-native/docs/listview.html}
-import News from '../Components/News';
+import Events from '../Components/Events';
 //This is the actual component that contains styling to be rendered
 
-class NewsContainer extends Component {
+class EventsContainer extends Component {
     render() {
         //React render function to be called everytime there is new props
         var listSource =
@@ -29,7 +29,7 @@ class NewsContainer extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
                 sectionHeaderHasChanged: (s1, s2) => s1 !== s2
             });
-        var dataSource = listSource.cloneWithRows(this.props.news);
+        var dataSource = listSource.cloneWithRows(this.props.events);
         /*
          * This is going to be the data that will be sent to the child component
          * this.props.chapels is defined in chapelActions and is getting fetched in app container
@@ -38,13 +38,13 @@ class NewsContainer extends Component {
          * This is a standard redux flow Action -> Reducer -> Container (this file) -> Component (Chapel.js)
          */
         return (
-            <News dataSource={dataSource}/>
+            <Events dataSource={dataSource}/>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return { ...state.newsReducer }
+    return { ...state.eventsReducer }
     /**
      * This function allows us to take whatever is in the store of our choosing (chapelReducer)
      * And send it the this containers props {@see this.props.chapel in render function}
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => {
      */
 }
 
-export default connect(mapStateToProps)(NewsContainer)
+export default connect(mapStateToProps)(EventsContainer)
