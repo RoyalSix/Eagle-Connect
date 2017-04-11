@@ -26,9 +26,9 @@ import * as newsActions from '../Actions/newsActions';
 export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
-        store.dispatch(dinigActions.startDiningLoad());
-        store.dispatch(newsActions.startNewsLoad());
         store.dispatch(eventsActions.startEventsLoad());
+        store.dispatch(dinigActions.startDinigLoad());
+        store.dispatch(newsActions.startNewsLoad());
     }
     render() {
         return (

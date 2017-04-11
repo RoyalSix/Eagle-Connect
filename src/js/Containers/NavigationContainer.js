@@ -22,6 +22,8 @@ class NavigationContainer extends Component {
         switch (name) {
             case 'CHAPELS':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
+            case 'EVENTS':
+                return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;  
                 break;
             case 'DINING':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
@@ -50,6 +52,7 @@ class NavigationContainer extends Component {
 
 const mapStateToProps = (state) => {
     return { ...state.chapelReducer }
+    //return { ...state.eventReducer }
 }
 
 export default connect(mapStateToProps)(NavigationContainer)
