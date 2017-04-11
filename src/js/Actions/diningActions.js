@@ -1,141 +1,94 @@
-/**
- * @file Redux actions for the chapel container
- * {@link http://redux.js.org/docs/basics/Actions.html}
- */
-
 import * as types from './actionTypes';
-//Using constants instead of strings to differentiate types of actions
 import { DOMParser } from 'react-native-html-parser';
-//This is an external library used to parse html. React native does not 
-//support this natively
 import * as API from '../API'
 
-/**
- * @description - This is a redux action that will initiate a chapel load.
- * This does two things for us:
- *  - This will allow us to have a field in the store that says chapels are loading
- *      if we ever wanted to show a loading screen.
- *  - This will allow us to fetch the chapels from an HTTP request (fetch) and send
- *      them back to the store asychoronously
- */
-export function startDinigLoad() {
+export function startDiningLoad() {
     return function (dispatch) {
-        /*The dispatch fucntion allows us to call other redux actions
-         * Also referred to the dispatcher 
-         * This will allow us to also to perform asychoronous actions
-         * {@link http://redux.js.org/docs/advanced/AsyncActions.html#async-action-creators}
-         */
+
         dispatch({
             type: types.START_DINING_LOAD,
             loadingDining: true
         })
 
-        /**
-         * This is the function that gets called to get the chapels, 
-         * when the callback is called (once the chapels are received)
-         * then recieveChapels will be called with that same data being passed
-         * {@link https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd}
-         */
-        return getDiningItems((content) => {
-            //We have access to chapels here because of the callback
-            dispatch(recieveDiningItems(content))
+        return getDiningItems((dining) => {
+            dispatch(receiveDiningItems(dining))
         })
     }
 }
 
-/**
- * @description - This function is a redux action that sends the chapels to the store
- * So that our components can use it as props
- * The type 'RECIEVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
- * 
- * @param {object} chapels 
- */
-export function recieveDiningItems(diningItems) {
-    return {
-        type: types.RECIEVE_DINING_LOAD,
+export function receiveDiningItems(dining) {
+    return { 
+        type: types.RECEIVE_DINING_LOAD,
         loadingDining: false,
-        diningItems: diningItems
+        dining: dining
     }
 }
 
-
-/**
- * @description - This redux action gets the chapels from an html string and returns them
- * in a callback.
- * 
- * @param {function} callback 
- */
 export function getDiningItems(callback) {
-    cafeObjects = {};
-    API.getJSONFromURL('legacy.cafebonappetit.com/weekly-menu/147727', function (htmlString) {
-        var cafeArray = htmlString.div.div[1].div;
-        cafeArray.forEach(function (element) {
-            if (element.class == 'row ') {
-                for (var i in element.div) {
+    getHTMLFromURL('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Flegacy.cafebonappetit.com/weekly-menu/147727%2F%22&format=json', function (data) {
+        
+        var DiningDoc = JSON.parse(data);
+        var WeeklyDining = DiningDoc.query.results.body.div.div[1].div;
+        var allDining = getArrayOfDiningFromNodeList(WeeklyDining);
 
-                }
-            }
-        });
-        callback(cafeObjects);
-        //Calling the function in the @see startChapelLoad function which
-        //allows us to return it to the dispatch
+        callback(allDining);
+        
     });
 }
 
-/**
- * This function abstracts the parsing of the data we need
- * for the chapels from a list of nodes given
- * 
- * @param {Live Node List} nodeList 
- */
-export function getArrayOfChapelsFromNodeList(nodeList) {
-    var chapelList = [];
-    for (var i = 0; i < nodeList.length; i++) {
-        var chapelListItems = nodeList[i].querySelect('li');
-        //For each item in the list of HTML nodes (which are basically the containers for 
-        // the chapels) find the list items (li, which are the actual chapel nodes)
-        for (var j = 0; j < chapelListItems.length; j++) {
-            var chapelSplit = chapelListItems[j].childNodes;
-            //For each chapel item we are spliting the different
-            //elements it contains into an array
-            var date = "";
-            var title = "";
-            var speaker = "";
-            var location = "";
-            //We need to initalize the variables here as an empty string
-            //so that if they are undefined it will still be an empty string
+export function getArrayOfDiningFromNodeList(nodeList) 
+{
+    var diningList = [];
+    
+    for (var i = 1; i < nodeList.length; i++) 
+    {
+        //This loop runs through each row which represents each food station.    
+        //i = 0 would pull weekday names, within that array would be days ([0][1] = Mon, [0][2] = Tue)
 
-            /**
-             * The chapel array we are going to have here will have four items we care about
-             * 1. The date of the chapel
-             * 2. The title of the chapel
-             * 3. The location of the chapel
-             * 4. The speaker of the chapel
-             * 
-             * You have to search and find in the raw html
-             * which element of the array you need and which query
-             * call to recieve the right information
-             * 
-             * .textContent is the raw text of the inner html and is a good way to see what
-             * the current node contains
-             */
-            try {
-                title = chapelSplit[1].querySelect('.title')[0].textContent
-                date = chapelSplit[0].textContent;
-                location = chapelSplit[1].querySelect('.location')[0].textContent;
-                speaker = chapelSplit[1].querySelect('.subtitle')[0].textContent;
-            } catch (e) {
+        for (var j = 1; j < nodeList[i].div.length; j++) 
+        {
+            //This loop runs through each menu item in row.
+            //j = 0 would pull station names, but not needed.
+
+            var FoodName = "";
+            var FoodDescription = "";
+            var FoodTime = "";
+
+            if(nodeList[i].div[j].div instanceof Array) 
+            {
+                for (var x = 0; x < nodeList[i].div[j].div.length; x++) 
+                {
+                    //This loop runs through each menu item in row if Array.
+
+                    try 
+                    {
+                        FoodName =          nodeList[i].div[j].div[x].div["0"].strong.span.content;
+                        FoodDescription =   nodeList[i].div[j].div[x].div["0"].span["0"].content;
+                        FoodTime =          nodeList[i].div[j].div[x].div["0"].span[1].span.strong;
+                    } 
+                    catch (e) { }
+                
+                    diningList.push({FoodName, FoodDescription, FoodTime});
+                }
             }
-            chapelList.push({
-                date,
-                title,
-                speaker,
-                location
-            });
-            //Adding it on to the array of chapels that will eventually be
-            //passed back to the component List View
-            // js/src/Containers/ChapelContainer
+            else 
+            {
+                try 
+                {
+                    FoodName =          nodeList[i].div[j].div.div["0"].strong.span.content;
+                    FoodDescription =   nodeList[i].div[j].div.div["0"].span["0"].content;
+                    FoodTime =          nodeList[i].div[j].div.div["0"].span[1].span.strong;
+                } 
+                catch (e) { }
+
+                diningList.push({FoodName, FoodDescription, FoodTime});
+            }
         }
     }
-    return chapelList;
+
+    return diningList;
+}
+
+export function getHTMLFromURL(url, callback) {
+    fetch(url).then((response) => response.text()).then((htmlString) => callback(htmlString));
 }
