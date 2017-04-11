@@ -27,7 +27,7 @@ export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
         store.dispatch(eventsActions.startEventsLoad());
-        store.dispatch(dinigActions.startDinigLoad());
+        store.dispatch(dinigActions.startDiningLoad());
         store.dispatch(newsActions.startNewsLoad());
     }
     render() {
