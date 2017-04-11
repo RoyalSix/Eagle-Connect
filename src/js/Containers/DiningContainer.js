@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-//COMPLETE
-
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { ListView } from 'react-native';
-import Dining from '../Components/Dining';
-
-class DiningContainer extends Component {
-    render() {
-
-=======
 /**
  * @file This is the container for the actual component
  * This file should handle the business logic of the component
