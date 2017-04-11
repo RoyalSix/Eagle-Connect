@@ -10,24 +10,24 @@ export default class EventContainer extends Component {
     renderRow(data) {
         return (
             <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
-                <Text style={{ fontSize: 20 }}>{data.date}</Text>
-                <Text style={{ fontSize: 15 }}>{data.time}</Text>
-                <Text style={{ fontSize: 15 }}>{data.title}</Text>
-                <Text style={{ fontSize: 12 }}>{data.speaker}</Text>
+                <Text style={{ fontSize: 20 }}>{data.title}</Text>
+                <Text style={{ fontSize: 15 }}>{data.speaker}</Text>
+                <Text style={{ fontSize: 12 }}>{data.date}</Text>
+                <Text style={{ fontSize: 12 }}>{data.time}</Text>
             </View>
         )
     }
     renderHeader() {
-        return <Text style={style.eventHeading}>EVENTS</Text>;
+        return <Text style={style.chapelHeading}>EVENTS</Text>;
     }
     renderSeparator(sectionId, rowId){
-        return <View key={rowId} style={style.eventSeparator} />;
+        return <View key={rowId} style={style.chapelSeparator} />;
     }
     render() {
         return (
             <ListView
                 enableEmptySections
-                style={style.eventContainer}
+                style={style.chapelContainer}
                 dataSource={this.props.dataSource}
                 renderRow={this.renderRow}
                 renderSeparator={this.renderSeparator}
