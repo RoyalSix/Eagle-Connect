@@ -26,7 +26,6 @@ export function startNewsLoad() {
          * This will allow us to also to perform asychoronous actions
          * {@link http://redux.js.org/docs/advanced/AsyncActions.html#async-action-creators}
          */
-
         dispatch({
             type: types.START_NEWS_LOAD,
             loadingNews: true
@@ -38,9 +37,9 @@ export function startNewsLoad() {
          * then recieveChapels will be called with that same data being passed
          * {@link https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd}
          */
-        return getNewsItems((chapels) => {
+        return getNewsItems((news) => {
             //We have access to chapels here because of the callback
-            dispatch(recieveNewsItems(chapels))
+            dispatch(recieveNewsItems(news))
         })
     }
 }
@@ -50,7 +49,7 @@ export function startNewsLoad() {
  * So that our components can use it as props
  * The type 'RECIEVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
  * 
- * @param {object} chapels 
+ * @param {object} news 
  */
 export function recieveNewsItems(news) {
     return {
@@ -67,6 +66,70 @@ export function recieveNewsItems(news) {
  * 
  * @param {function} callback 
  */
-export function getNewsItems(callback) {
-    callback();
+
+export function getNewsItems(callback){
+    //newsobjects = {};
+
+    //API.getJSONFromURL('chimes.biola.edu/news/feed',function(results){
+    getHTMLFromURL('chimes.biola.edu/news/feed', function(results){
+
+        var main = results.rss.channel.item;
+        debugger;
+
+        //API.each(main, function(i, val){ });
+        
+        let doc = new DOMParser().parserFromString(results, 'text/html');
+        
+        var newsNodes = doc.getElementsByClassName('results')
+        var newsobjects = getArrayofNewsItems(newsNodes)
+
+         callback(newsobjects);
+         debugger;
+     });
+}
+
+export function getArrayofNewsItems(nodeList) {
+    var newsList = [];
+    debugger;
+
+    for(var i = 0; i < nodeList.length; i++){
+        var newsListItems = nodeList[i].querySelect('li');
+
+        //var newsListItems = nodeList[i].querySelect('.meta');
+        //var newsTitleItems = nodeList[i].querySelect('h2');
+        //var newsSubtitleItems = nodeList[i].querySelect('.blurb');
+
+        for (var j = 0; j < nodeListItems.length; j++){
+            var newsSplit = newsSplitItems[j].childNodes;
+
+            var date = "";
+            var title = "";
+            var author = "";
+            var description = "";
+            var link = "";
+
+            try{
+                title = newsSplit[1].querySelect('.title')[0].textContent;
+                date = newsSplit[1].querySelect('.pubDate')[0].textContent;
+                link = newsSplit[1].querySelect('.link')[0].textContent;
+                description = newsSplit[1].querySelect('.description')[0].textContent;
+                author = newsSplit[1].querySelect('.dc:creator')[0].textContent;
+            } catch (e){
+            }
+
+            newsList.push({
+                title, 
+                link,
+                description,
+                author,
+                date
+            });
+
+        }
+    }
+    return newsList;
+}
+
+export function getHTMLFromURL(url, callback){
+    fetch(url).then((response)=> response.text()).then((htmlstring)=> callback(htmlString));
 }
