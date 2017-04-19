@@ -67,69 +67,30 @@ export function recieveNewsItems(news) {
  * @param {function} callback 
  */
 
-export function getNewsItems(callback){
-    //newsobjects = {};
-
-    //API.getJSONFromURL('chimes.biola.edu/news/feed',function(results){
-    getHTMLFromURL('chimes.biola.edu/news/feed', function(results){
-
-        var main = results.rss.channel.item;
-        debugger;
-
-        //API.each(main, function(i, val){ });
-        
-        let doc = new DOMParser().parserFromString(results, 'text/html');
-        
-        var newsNodes = doc.getElementsByClassName('results')
-        var newsobjects = getArrayofNewsItems(newsNodes)
-
-         callback(newsobjects);
-         debugger;
-     });
-}
-
-export function getArrayofNewsItems(nodeList) {
-    var newsList = [];
-    debugger;
-
-    for(var i = 0; i < nodeList.length; i++){
-        var newsListItems = nodeList[i].querySelect('li');
-
-        //var newsListItems = nodeList[i].querySelect('.meta');
-        //var newsTitleItems = nodeList[i].querySelect('h2');
-        //var newsSubtitleItems = nodeList[i].querySelect('.blurb');
-
-        for (var j = 0; j < nodeListItems.length; j++){
-            var newsSplit = newsSplitItems[j].childNodes;
-
-            var date = "";
+export function getNewsItems(callback) {
+    API.getJSONFromURL('chimes.biola.edu/news/feed/', function (htmlString) {
+        var main = htmlString.rss.channel.item;
+        var newsobjects = [];
+        for (var newsItem of main) {
             var title = "";
-            var author = "";
             var description = "";
-            var link = "";
+            var author = "";
+            var date = "";
 
-            try{
-                title = newsSplit[1].querySelect('.title')[0].textContent;
-                date = newsSplit[1].querySelect('.pubDate')[0].textContent;
-                link = newsSplit[1].querySelect('.link')[0].textContent;
-                description = newsSplit[1].querySelect('.description')[0].textContent;
-                author = newsSplit[1].querySelect('.dc:creator')[0].textContent;
-            } catch (e){
+            try {
+            var title = newsItem.content.split('http')[0];
+            var description = newsItem.description;
+            var author = newsItem.creator.content;
+            var date = newsItem.pubdate;
+            } catch (e) {
             }
-
-            newsList.push({
-                title, 
-                link,
+            newsobjects.push({
+                title,
                 description,
                 author,
                 date
-            });
-
+            })
         }
-    }
-    return newsList;
-}
-
-export function getHTMLFromURL(url, callback){
-    fetch(url).then((response)=> response.text()).then((htmlstring)=> callback(htmlString));
+        callback(newsobjects);
+    });
 }

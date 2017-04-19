@@ -9,7 +9,11 @@ import style from 'css';
 export default class NewsContainer extends Component {
     renderRow(data) {
         return (
-            <View>
+            <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
+                <Text style={{ fontSize: 20 }}>{data.title}</Text>
+                <Text style={{ fontSize: 15 }}>{data.author}</Text>
+                <Text style={{ fontSize: 15 }}>{data.description}</Text>
+                <Text style={{ fontSize: 12 }}>{data.date}</Text>
             </View>
         )
     }
