@@ -10,8 +10,8 @@ export default class DiningContainer extends Component {
     renderRow(data) {
         return (
             <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
-                <Text style={{ fontSize: 20 }}>{data.FoodName}</Text>
-                <Text style={{ fontSize: 12 }}>{data.FoodDescription}</Text>                                 
+                <Text style={{ fontSize: 20, color:'white'  }}>{data.FoodName}</Text>
+                <Text style={{ fontSize: 12, color:'white'  }}>{data.FoodDescription}</Text>                                 
             </View>
         )
     }
