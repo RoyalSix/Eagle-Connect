@@ -11,9 +11,9 @@ export default class ChapelContainer extends Component {
         return (
             <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
                 <Text style={{ fontSize: 20, color: 'white' }}>{data.title}</Text>
-                <Text style={{ fontSize: 15, color: 'white' }}>{data.speaker}</Text>
-                <Text style={{ fontSize: 15, color: 'white' }}>{data.location}</Text>
-                <Text style={{ fontSize: 12, color: 'white' }}>{data.date}</Text>
+                { data.speaker ? <Text style={{ fontSize: 15, color: 'white' }}>Speaker: {data.speaker}</Text> : null}
+                <Text style={{ fontSize: 15, color: 'white' }}>Location: {data.location}</Text>
+                <Text style={{ fontSize: 12, color: 'white' }}>Time: {data.date.split(',')[2].trim()}</Text>
             </View>
         )
     }
