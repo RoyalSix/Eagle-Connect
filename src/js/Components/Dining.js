@@ -9,10 +9,13 @@ import style from 'css';
 export default class DiningContainer extends Component {
     renderRow(data) {
         return (
-            <View>
+            <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
+                <Text style={{ fontSize: 20 }}>{data.FoodName}</Text>
+                <Text style={{ fontSize: 12 }}>{data.FoodDescription}</Text>                                 
             </View>
         )
     }
+
     renderHeader() {
         return <Text style={style.chapelHeading}>DINING</Text>;
     }
@@ -23,12 +26,12 @@ export default class DiningContainer extends Component {
         return (
             <ListView
                 enableEmptySections
-                style={style.chapelContainer}
+                style={style.diningContainer}
                 dataSource={this.props.dataSource}
                 renderRow={this.renderRow}
                 renderSeparator={this.renderSeparator}
                 renderHeader={this.renderHeader}
-            />
+            /> 
         )
     }
 }

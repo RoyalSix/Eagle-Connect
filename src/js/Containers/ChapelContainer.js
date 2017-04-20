@@ -24,7 +24,7 @@ import Chapel from '../Components/Chapel';
 class ChapelContainer extends Component {
     render() {
         //React render function to be called everytime there is new props
-        var listSource =
+        var listSource = 
             new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
                 sectionHeaderHasChanged: (s1, s2) => s1 !== s2
@@ -33,7 +33,7 @@ class ChapelContainer extends Component {
         /*
          * This is going to be the data that will be sent to the child component
          * this.props.chapels is defined in chapelActions and is getting fetched in app container
-         * From the action it goes to the reducer by the tyoe name RECIEVE_CHAPEL_LOAD
+         * From the action it goes to the reducer by the tyoe name RECEIVE_CHAPEL_LOAD
          * and then merged in the store
          * This is a standard redux flow Action -> Reducer -> Container (this file) -> Component (Chapel.js)
          */

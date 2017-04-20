@@ -19,19 +19,16 @@ const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
 
 import * as chapelActions from '../Actions/chapelActions';
-
-//Call the action you created to start the load 
 import * as eventsActions from '../Actions/eventsActions';
 import * as dinigActions from '../Actions/diningActions';
 import * as newsActions from '../Actions/newsActions';
 
-
 export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
-        store.dispatch(dinigActions.startDinigLoad());
-        store.dispatch(newsActions.startNewsLoad());
         store.dispatch(eventsActions.startEventsLoad());
+        store.dispatch(dinigActions.startDiningLoad());
+        store.dispatch(newsActions.startNewsLoad());
     }
     render() {
         return (

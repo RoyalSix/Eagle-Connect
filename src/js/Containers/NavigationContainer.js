@@ -13,6 +13,7 @@ import ChapelContainer from './ChapelContainer';
 import DiningContainer from './DiningContainer';
 import EventsContainer from './EventsContainer';
 import NewsContainer from './NewsContainer';
+
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import ChapelTab from '../Components/TabBar/ChapelTab';
 
@@ -21,6 +22,8 @@ class NavigationContainer extends Component {
         switch (name) {
             case 'CHAPELS':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
+            case 'EVENTS':
+                return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;  
                 break;
             case 'DINING':
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
@@ -37,8 +40,7 @@ class NavigationContainer extends Component {
         return (
             <ScrollableTabView tabBarPosition={'bottom'} initialPage={0} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
                 onChangeTab={this.handleChangeTab} tabBarBackgroundColor='black'
-                locked={true} style={{ marginBottom: -1 }}
-            >
+                locked={true} style={{ marginBottom: -1 }}>
                 <ChapelContainer tabLabel="CHAPELS" {...this.props} />
                 <DiningContainer tabLabel="DINING" {...this.props} />
                 <NewsContainer tabLabel="NEWS" {...this.props} />
@@ -50,6 +52,7 @@ class NavigationContainer extends Component {
 
 const mapStateToProps = (state) => {
     return { ...state.chapelReducer }
+    //return { ...state.eventReducer }
 }
 
 export default connect(mapStateToProps)(NavigationContainer)

@@ -51,7 +51,7 @@ export function startNewsLoad() {
 /**
  * @description - This function is a redux action that sends the chapels to the store
  * So that our components can use it as props
- * The type 'RECIEVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
+ * The type 'RECEIVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
  * 
  * @param {object} news 
  */

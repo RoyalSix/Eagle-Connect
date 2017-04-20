@@ -24,7 +24,7 @@ export function chapelReducer(state = {
              * for more information
              */
             break;
-        case types.RECIEVE_CHAPEL_LOAD:
+        case types.RECEIVE_CHAPEL_LOAD: 
             return {
                 ...state,
                 loadingChapels: false,
