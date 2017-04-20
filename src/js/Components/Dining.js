@@ -26,7 +26,7 @@ export default class DiningContainer extends Component {
         return (
             <ListView
                 enableEmptySections
-                style={style.diningContainer}
+                style={style.chapelContainer}
                 dataSource={this.props.dataSource}
                 renderRow={this.renderRow}
                 renderSeparator={this.renderSeparator}

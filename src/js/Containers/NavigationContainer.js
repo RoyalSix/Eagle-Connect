@@ -24,7 +24,7 @@ import CampusTab from '../Components/TabBar/CampusTab';
 import EventsTab from '../Components/TabBar/EventsTab';
 import HomeTab from '../Components/TabBar/HomeTab';
 
-import navigationActions from '../Actions/navigationActions'
+import * as navigationActions from '../Actions/navigationActions'
 
 const home_icon = require('assets').home_icon;
 
@@ -33,6 +33,14 @@ class NavigationContainer extends Component {
         super(props);
         this.handleChangeTab = this.handleChangeTab.bind(this);
     }
+
+    componentWillMount() {
+        this.props.setTime();
+        window.setTimeout(() => {
+            this.props.setTime();
+        }, 60000)
+    }
+
     renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
         switch (name) {
             case 'CHAPELS':
@@ -60,29 +68,40 @@ class NavigationContainer extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
-                <ScrollableTabView  tabBarPosition={'bottom'} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
-                    tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ marginBottom: -1, backgroundColor:'black' }}
-                    tabBarUnderlineStyle={{backgroundColor:'red'}}
-                    >
+            <View style={{ flex: 1, backgroundColor: 'black', }}>
+                <View style={{ top:0, left:0, flexDirection: 'row', justifyContent: 'space-between', position:'absolute', zIndex:2, backgroundColor:'rgba(0,0,0,0)' }}>
+                    <Text style={{ color: 'grey', fontSize: 17, margin: 10, flex:1 }}>{this.props.day}</Text>
+                    <Text style={{ color: 'grey', fontSize: 17, margin: 10 }}>{this.props.time}</Text>
+                </View>
+                <ScrollableTabView tabBarPosition={'bottom'} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
+                    tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ marginBottom: -1, backgroundColor: 'black', zIndex:1 }}
+                    tabBarUnderlineStyle={{ backgroundColor: 'red' }}>
                     <ChapelContainer tabLabel="CHAPELS" {...this.props} />
                     <DiningContainer tabLabel="DINING" {...this.props} />
                     <HomeContainer tabLabel="HOME" {...this.props} />
                     <NewsContainer tabLabel="NEWS" {...this.props} />
                     <EventsContainer tabLabel="EVENTS" {...this.props} />
                 </ScrollableTabView>
+            </View>
         )
     }
 }
 
+
+
 const mapStateToProps = (state) => {
-    return state
+    return { ...state.navigationReducer }
 }
 
 const mapDispatchToState = (dispatch, ownProps) => {
     return {
         changeTab: (index) => {
             dispatch(navigationActions.changeTab(index));
+        },
+        setTime: () => {
+            dispatch(navigationActions.setTime());
         }
     }
 }

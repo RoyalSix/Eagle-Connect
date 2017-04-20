@@ -18,7 +18,7 @@ export default class ChapelContainer extends Component {
         )
     } 
     renderHeader() {
-        return <Text style={style.chapelHeading}>CHAPELS</Text>;
+        return <Text style={style.chapelHeading}>chapels</Text>;
     }
     renderSeparator(sectionId, rowId){
         return <View key={rowId} style={style.chapelSeparator} />;

@@ -29,7 +29,6 @@ export function getDiningItems(callback) {
         var DiningDoc = JSON.parse(data);
         var WeeklyDining = DiningDoc.query.results.body.div.div[1].div;
         var allDining = getArrayOfDiningFromNodeList(WeeklyDining);
-
         callback(allDining);
         
     });
