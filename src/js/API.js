@@ -26,3 +26,24 @@ export function getJSONFromURL(url, callback) {
 export function getHTMLFromURL(url, callback) {
     fetch(url).then((response) => response.text()).then((htmlString) => callback(htmlString));
 }
+
+export function getTime() {
+    var timeOfDay = "AM";
+    function pad(n) {
+         return (n < 10) ? '0' + n : n;
+    }
+
+    var time = new Date();
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+
+    if (hours > 12) {
+        hours -= 12;
+        timeOfDay = "PM"
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    var todisplay = pad(hours) + ':' + pad(minutes) + " " + timeOfDay;
+    return todisplay
+}

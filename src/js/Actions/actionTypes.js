@@ -11,3 +11,5 @@ export const RECIEVE_NEWS_LOAD = "RECIEVE_NEWS_LOAD";
 export const START_NEWS_LOAD = "START_NEWS_LOAD";
 
 export const CHANGE_TAB = "CHANGE_TAB";
+
+export const SET_TIME = "SET_TIME";
