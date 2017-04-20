@@ -68,7 +68,7 @@ export function recieveDiningItems(diningItems) {
 export function getDiningItems(callback) {
     cafeObjects = {};
     API.getJSONFromURL('legacy.cafebonappetit.com/weekly-menu/147727', function (htmlString) {
-        var cafeArray = htmlString.div.div[1].div;
+        var cafeArray = htmlString.body.div.div[1].div;
         cafeArray.forEach(function (element) {
             if (element.class == 'row ') {
                 for (var i in element.div) {

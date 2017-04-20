@@ -37,7 +37,11 @@ export function startNewsLoad() {
          * then recieveChapels will be called with that same data being passed
          * {@link https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd}
          */
-        return getNewsItems((news) => {
+        getNewsItems((news) => {
+            //We have access to chapels here because of the callback
+            dispatch(recieveNewsItems(news))
+        })
+        getExtraNewsItems((news) => {
             //We have access to chapels here because of the callback
             dispatch(recieveNewsItems(news))
         })
@@ -69,7 +73,7 @@ export function recieveNewsItems(news) {
 
 export function getNewsItems(callback) {
     API.getJSONFromURL('chimes.biola.edu/news/feed/', function (htmlString) {
-        var main = htmlString.rss.channel.item;
+        var main = htmlString.body.rss.channel.item;
         var newsobjects = [];
         for (var newsItem of main) {
             var title = "";
@@ -78,10 +82,10 @@ export function getNewsItems(callback) {
             var date = "";
 
             try {
-            var title = newsItem.content.split('http')[0];
-            var description = newsItem.description;
-            var author = newsItem.creator.content;
-            var date = newsItem.pubdate;
+                var title = newsItem.content.split('http')[0];
+                var description = newsItem.description;
+                var author = newsItem.creator.content;
+                var date = newsItem.pubdate;
             } catch (e) {
             }
             newsobjects.push({
@@ -89,6 +93,31 @@ export function getNewsItems(callback) {
                 description,
                 author,
                 date
+            })
+        }
+        callback(newsobjects);
+    });
+}
+
+export function getExtraNewsItems(callback) {
+    API.getHTMLFromURL('https://www.parsehub.com/api/v2/projects/t6wjq5ENy15n/last_ready_run/data?api_key=tYB1vcfaP10q', function (htmlString) {
+        const newsItems = JSON.parse(htmlString).newsitem;
+        var newsobjects = [];
+        for (var item of newsItems) {
+            var title = "";
+            var description = "";
+            var author = "";
+
+            try {
+                var title = item.header;
+                var description = item.description;
+                var author = item.author;
+            } catch (e) {
+            }
+            newsobjects.push({
+                title,
+                description,
+                author
             })
         }
         callback(newsobjects);
