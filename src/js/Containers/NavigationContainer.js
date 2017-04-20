@@ -9,9 +9,6 @@ import {
     ListView,
     TouchableHighlight
 } from 'react-native';
-const Dimensions = React.Dimensions || require('Dimensions')
-    , { width, height } = Dimensions.get('window');
-const vw = width / 100, vh = height / 100;
 
 import { connect } from 'react-redux'
 import ChapelContainer from './ChapelContainer';
@@ -65,7 +62,9 @@ class NavigationContainer extends Component {
     render() {
         return (
                 <ScrollableTabView  tabBarPosition={'bottom'} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
-                    tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ marginBottom: -1,  }}>
+                    tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ marginBottom: -1, backgroundColor:'black' }}
+                    tabBarUnderlineStyle={{backgroundColor:'red'}}
+                    >
                     <ChapelContainer tabLabel="CHAPELS" {...this.props} />
                     <DiningContainer tabLabel="DINING" {...this.props} />
                     <HomeContainer tabLabel="HOME" {...this.props} />

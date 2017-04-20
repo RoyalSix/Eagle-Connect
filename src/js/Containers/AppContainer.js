@@ -5,7 +5,8 @@ import {
     Text,
     View,
     Image,
-    TextInput
+    TextInput,
+    StatusBar
 } from 'react-native';
 import * as reducers from '../Reducers';
 import thunk from 'redux-thunk';
@@ -29,6 +30,7 @@ export default class App extends Component {
         store.dispatch(eventsActions.startEventsLoad());
         store.dispatch(dinigActions.startDiningLoad());
         store.dispatch(newsActions.startNewsLoad());
+        StatusBar.setHidden(true, 'none');
     }
     render() {
         return (

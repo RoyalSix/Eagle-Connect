@@ -6,9 +6,6 @@ import {
     Text,
     View
 } from 'react-native';
-const Dimensions = React.Dimensions || require('Dimensions')
-    , {width, height} = Dimensions.get('window');
-const vw = width / 100, vh = height / 100;
 import { home_icon } from 'assets';
 
 

@@ -5,9 +5,6 @@ import {
     TouchableOpacity,
     Text
 } from 'react-native';
-const Dimensions = React.Dimensions || require('Dimensions')
-    , {width, height} = Dimensions.get('window');
-const vw = width / 100, vh = height / 100;
 import { chapelTab } from 'assets';
 
 export default class CategoryTab extends Component {
