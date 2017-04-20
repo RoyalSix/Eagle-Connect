@@ -107,17 +107,19 @@ export function getExtraNewsItems(callback) {
             var title = "";
             var description = "";
             var author = "";
-
+            var date = "";
             try {
-                var title = item.header;
-                var description = item.description;
-                var author = item.author;
+                title = item.header;
+                description = item.description;
+                date = item.author.split(' on ')[1].trim();
+                author = item.author.split(' on ')[0].trim();
             } catch (e) {
             }
             newsobjects.push({
                 title,
                 description,
-                author
+                author,
+                date
             })
         }
         callback(newsobjects);
