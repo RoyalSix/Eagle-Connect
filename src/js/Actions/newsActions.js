@@ -26,7 +26,6 @@ export function startNewsLoad() {
          * This will allow us to also to perform asychoronous actions
          * {@link http://redux.js.org/docs/advanced/AsyncActions.html#async-action-creators}
          */
-
         dispatch({
             type: types.START_NEWS_LOAD,
             loadingNews: true
@@ -38,9 +37,13 @@ export function startNewsLoad() {
          * then recieveChapels will be called with that same data being passed
          * {@link https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd}
          */
-        return getNewsItems((chapels) => {
+        getNewsItems((news) => {
             //We have access to chapels here because of the callback
-            dispatch(recieveNewsItems(chapels))
+            dispatch(recieveNewsItems(news))
+        })
+        getExtraNewsItems((news) => {
+            //We have access to chapels here because of the callback
+            dispatch(recieveNewsItems(news))
         })
     }
 }
@@ -50,7 +53,7 @@ export function startNewsLoad() {
  * So that our components can use it as props
  * The type 'RECEIVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
  * 
- * @param {object} chapels 
+ * @param {object} news 
  */
 export function recieveNewsItems(news) {
     return {
@@ -67,6 +70,58 @@ export function recieveNewsItems(news) {
  * 
  * @param {function} callback 
  */
+
 export function getNewsItems(callback) {
-    callback();
+    API.getJSONFromURL('chimes.biola.edu/news/feed/', function (htmlString) {
+        var main = htmlString.body.rss.channel.item;
+        var newsobjects = [];
+        for (var newsItem of main) {
+            var title = "";
+            var description = "";
+            var author = "";
+            var date = "";
+
+            try {
+                var title = newsItem.content.split('http')[0];
+                var description = newsItem.description;
+                var author = newsItem.creator.content;
+                var date = newsItem.pubdate;
+            } catch (e) {
+            }
+            newsobjects.push({
+                title,
+                description,
+                author,
+                date
+            })
+        }
+        callback(newsobjects);
+    });
+}
+
+export function getExtraNewsItems(callback) {
+    API.getHTMLFromURL('https://www.parsehub.com/api/v2/projects/t6wjq5ENy15n/last_ready_run/data?api_key=tYB1vcfaP10q', function (htmlString) {
+        const newsItems = JSON.parse(htmlString).newsitem;
+        var newsobjects = [];
+        for (var item of newsItems) {
+            var title = "";
+            var description = "";
+            var author = "";
+            var date = "";
+            try {
+                title = item.header;
+                description = item.description;
+                date = item.author.split(' on ')[1].trim();
+                author = item.author.split(' on ')[0].trim();
+            } catch (e) {
+            }
+            newsobjects.push({
+                title,
+                description,
+                author,
+                date
+            })
+        }
+        callback(newsobjects);
+    });
 }
