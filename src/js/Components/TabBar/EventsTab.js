@@ -20,7 +20,7 @@ export default class CategoryTab extends Component {
                 onPress={() => this.props.onPressHandler(this.props.page)}
                 onLayout={this.props.onLayoutHandler}
                 style={{ width: vw * 20, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', flex:1 }}>
-                <Text style={{fontSize:16, color:'white'}}>chapels</Text>
+                <Text style={{fontSize:16, color:'white'}}>events</Text>
             </TouchableOpacity>
         );
     }

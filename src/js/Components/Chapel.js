@@ -31,6 +31,7 @@ export default class ChapelContainer extends Component {
                 dataSource={this.props.dataSource}
                 renderRow={this.renderRow}
                 renderSeparator={this.renderSeparator}
+                renderHeader={this.renderHeader}
             />
         )
     }

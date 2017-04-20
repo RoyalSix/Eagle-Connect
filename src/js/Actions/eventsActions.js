@@ -1,4 +1,3 @@
-
 import * as types from './actionTypes';
 //Using constants instead of strings to differentiate types of actions
 import { DOMParser } from 'react-native-html-parser';

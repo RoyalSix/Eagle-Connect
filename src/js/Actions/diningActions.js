@@ -26,7 +26,6 @@ export function receiveDiningItems(dining) {
 
 export function getDiningItems(callback) {
     getHTMLFromURL('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Flegacy.cafebonappetit.com/weekly-menu/147727%2F%22&format=json', function (data) {
-        
         var DiningDoc = JSON.parse(data);
         var WeeklyDining = DiningDoc.query.results.body.div.div[1].div;
         var allDining = getArrayOfDiningFromNodeList(WeeklyDining);
