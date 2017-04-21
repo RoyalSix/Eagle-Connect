@@ -9,11 +9,15 @@ import style from 'css';
 export default class ChapelContainer extends Component {
     renderRow(data) {
         return (
-            <View style={{ paddingVertical: 10, paddingHorizontal: 5, borderRadius: 5 }}>
-                <Text style={{ fontSize: 20, color: 'white' }}>{data.title}</Text>
-                { data.speaker ? <Text style={{ fontSize: 15, color: 'white' }}>Speaker: {data.speaker}</Text> : null}
-                <Text style={{ fontSize: 15, color: 'white' }}>Location: {data.location}</Text>
-                <Text style={{ fontSize: 12, color: 'white' }}>Time: {data.date.split(',')[2].trim()}</Text>
+            <View style={{ paddingVertical: 10, paddingHorizontal: 5, backgroundColor: 'white' }}>
+                <Text style={{ fontSize: 22, color: 'black', textAlign: 'center' }}>{data.location}</Text>
+                <View style={{ flexDirection: 'column', justifyContent: 'space-between', margin: 5 }}>
+                    <Text style={{ fontSize: 15, color: 'black' }}>Time: {data.date.split(',')[2].trim()}</Text>
+                    {data.speaker ? <Text style={{ fontSize: 15, color: 'black' }}>Speaker: {data.speaker}</Text> : null}
+                    <Text style={{ fontSize: 15, color: 'black' }}>{data.title}</Text>
+                </View>
+
+
             </View>
         )
     }
@@ -21,16 +25,15 @@ export default class ChapelContainer extends Component {
         return <Text style={style.chapelHeading}>chapels</Text>;
     }
     renderSeparator(sectionId, rowId) {
-        return (<View key={`sep:${sectionId}:${rowId}`} style={style.chapelSeparator}/>)
+        return (<View key={`sep:${sectionId}:${rowId}`} style={style.chapelSeparator} />)
     }
     renderSectionHeader(sectionData, sectionId) {
-        return (<Text style={{fontWeight: "700", color:'white', fontSize:25, paddingTop:10, marginTop:10}}>{sectionId}</Text>)
+        return (<Text style={{ fontWeight: "700", color: 'white', fontSize: 25, padding: 5, backgroundColor: 'black', flex: 1 }}>{sectionId}</Text>)
     }
 
     render() {
         return (
             <ListView
-                enableEmptySections
                 style={style.chapelContainer}
                 dataSource={this.props.dataSource}
                 renderRow={this.renderRow}
