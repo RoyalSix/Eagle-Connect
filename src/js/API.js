@@ -1,4 +1,5 @@
 import daysOfWeek from './daysOfWeek';
+import chapelPictures from './chapelPictures';
 
 /**
  * @description Abstracted the methods to recieve the JSON object of an html website from the url
@@ -56,6 +57,7 @@ export function convertArrayToMap(dataArray) {
     var thisWeekSortedChapels = {};
     var nextWeekSortedChapels = {};
     dataArray.forEach(function (chapelItem) {
+        chapelItem["picture"] = chapelPictures[chapelItem.location];
         const dayOfWeek = daysOfWeek[chapelItem.date.split(',')[0]];
         if (!thisWeekSortedChapels[dayOfWeek] || nextWeekSortedChapels["Next " + dayOfWeek]) {
             thisWeekSortedChapels[dayOfWeek] = [];
