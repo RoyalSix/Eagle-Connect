@@ -100,7 +100,7 @@ export function getNewsItems(callback) {
 }
 
 export function getExtraNewsItems(callback) {
-    API.getHTMLFromURL('https://www.parsehub.com/api/v2/projects/t6wjq5ENy15n/last_ready_run/data?api_key=tYB1vcfaP10q', function (htmlString) {
+    API.getHTMLFromURL('https://www.parsehub.com/api/v2/projects/t6wjq5ENy15n/last_ready_run/data?&format=json&api_key=tYB1vcfaP10q', function (htmlString) {
         const newsItems = JSON.parse(htmlString).newsitem;
         var newsobjects = [];
         for (var item of newsItems) {
