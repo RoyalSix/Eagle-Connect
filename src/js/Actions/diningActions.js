@@ -61,8 +61,10 @@ export function getArrayOfDiningFromNodeList(nodeList) {
                     var Day = "";
 
                     try {
-                        FoodLocation = nodeList[i].div["0"].span.content == "MTO" ? "Made To Order" : nodeList[i].div["0"].span.content;
+                        FoodLocation = nodeList[i].div["0"].span.content;
+                        FoodLocation = FoodLocation.replace("MTO", "Made To Order");
                         FoodName = nodeList[i].div[j].div[x].div["0"].strong.span.content;
+                        FoodName = FoodName.replace("MTO", "Made To Order");
                         FoodTime = nodeList[i].div[j].div[x].div["0"].span[1] ? nodeList[i].div[j].div[x].div["0"].span[1].span.strong : nodeList[i].div[j].div[x].div["0"].span.span.strong;
                         FoodTime = DiningTimeAbbreviation[FoodTime];
                         Day = daysOfWeek[nodeList[0].div[j].content];

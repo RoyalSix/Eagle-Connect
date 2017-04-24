@@ -12,7 +12,6 @@ export default class DiningContainer extends Component {
         function titleCase(phrase) {
             return phrase.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         }
-       data.FoodLocation = data.FoodLocation == "MTO" ? "Made To Order" : data.FoodLocation;
         return (
             <View style={{ padding: 10, backgroundColor: 'white', flexDirection: 'row' }}>
                 <View style={{ justifyContent: 'center', marginHorizontal: 10 }}>
