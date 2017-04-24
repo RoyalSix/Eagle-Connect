@@ -20,6 +20,7 @@ import { ListView } from 'react-native';
 //{@link https://facebook.github.io/react-native/docs/listview.html}
 import Dining from '../Components/Dining';
 //This is the actual component that contains styling to be rendered
+import * as API from '../API';
 
 class DiningContainer extends Component {
     render() {
@@ -29,7 +30,8 @@ class DiningContainer extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
                 sectionHeaderHasChanged: (s1, s2) => s1 !== s2
             });
-        var dataSource = listSource.cloneWithRows(this.props.dining);
+        const mappedData = API.convertArrayToMapDining(this.props.dining, this.props.day);
+        var dataSource = listSource.cloneWithRowsAndSections(mappedData);
         return (
             <Dining dataSource={dataSource}/>
         )
@@ -37,7 +39,7 @@ class DiningContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { ...state.diningReducer }
+    return { ...state.diningReducer, ...state.navigationReducer }
 }
 
 export default connect(mapStateToProps)(DiningContainer) 

@@ -50,7 +50,44 @@ export function getTime() {
     return todisplay
 }
 
-export function convertArrayToMap(dataArray) {
+export function getDay() {
+    var dayAbbr = Date().split(" ")[0];
+    return daysOfWeek[dayAbbr];
+}
+
+export function convertArrayToMapDining(dataArray, day) {
+    // dataArray.sort(function(a, b) {
+    //     var getValue = (day) =>{
+    //         switch(day) {
+    //             case "Breakfast": return 3;
+    //             case "Lunch": return 2;
+    //             case "Dinner": return 1;
+    //             default: 0;
+    //         }
+    //     }
+    //     return getValue(a.FoodTime) < getValue(b.FoodTime); 
+    // });
+    var diningCategoryMap = {}; // Create the blank map
+    dataArray.forEach(function (diningItem) {
+        const dayOfWeek = diningItem.Day;
+        const foodTime = diningItem.FoodTime;
+        if (day == dayOfWeek) {
+            if (foodTime.split(' and ')) {
+                for (var foodTimeSplit of foodTime.split(' and ')) {
+                    if (!diningCategoryMap[foodTimeSplit]) diningCategoryMap[foodTimeSplit] = [];
+                    diningCategoryMap[foodTimeSplit].push(diningItem);
+                }
+            } else {
+                if (!diningCategoryMap[foodTime]) diningCategoryMap[foodTime] = [];
+                diningCategoryMap[foodTime].push(diningItem);
+            }
+        }
+    });
+    return diningCategoryMap;
+
+}
+
+export function convertArrayToMapChapels(dataArray) {
     var chapelCategoryMap = {}; // Create the blank map
     var thisWeekChapels = [];
     var nextWeekChapels = [];
@@ -78,7 +115,7 @@ export function convertArrayToMap(dataArray) {
             nextWeekChapels.push(chapelItem);
         } else {
             var date_month = chapelItem.date.split(',')[1]
-             if (!chapelCategoryMap[dayOfWeek + date_month]) chapelCategoryMap[dayOfWeek + date_month] = [];
+            if (!chapelCategoryMap[dayOfWeek + date_month]) chapelCategoryMap[dayOfWeek + date_month] = [];
             chapelCategoryMap[dayOfWeek + date_month].push(chapelItem);
         }
 
@@ -91,7 +128,7 @@ export function convertArrayToMap(dataArray) {
         const day = daysOfWeek[chapelSorted.date.split(',')[0]];
         nextWeekSortedChapels["Next " + day].push(chapelSorted);
     }
-    return {...thisWeekSortedChapels, ...nextWeekSortedChapels, ...chapelCategoryMap};
+    return { ...thisWeekSortedChapels, ...nextWeekSortedChapels, ...chapelCategoryMap };
 
 }
 

@@ -36,6 +36,7 @@ class NavigationContainer extends Component {
 
     componentWillMount() {
         this.props.setTime();
+        this.props.setDay();
         window.setTimeout(() => {
             this.props.setTime();
         }, 60000)
@@ -102,6 +103,9 @@ const mapDispatchToState = (dispatch, ownProps) => {
         },
         setTime: () => {
             dispatch(navigationActions.setTime());
+        },
+        setDay: () => {
+            dispatch(navigationActions.setDay());
         }
     }
 }

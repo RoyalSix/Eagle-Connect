@@ -66,7 +66,7 @@ export function recieveChapels(chapels) {
  * @param {function} callback 
  */
 export function getChapels(callback) {
-    getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
+    getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
         //I abstracted out the react native fetch call for you no need to worry
         //about the details of using fetch and promises
         let doc = new DOMParser().parseFromString(htmlString, 'text/html');

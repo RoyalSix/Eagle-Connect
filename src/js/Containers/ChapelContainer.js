@@ -31,7 +31,7 @@ class ChapelContainer extends Component {
                 rowHasChanged: (row1, row2) => row1 !== row2,
                 sectionHeaderHasChanged: (s1, s2) => s1 !== s2
             });
-        const mappedData = API.convertArrayToMap(this.props.chapels);
+        const mappedData = API.convertArrayToMapChapels(this.props.chapels);
         var dataSource = listSource.cloneWithRowsAndSections(mappedData);
         /*
          * This is going to be the data that will be sent to the child component

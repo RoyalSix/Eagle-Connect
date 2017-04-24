@@ -15,3 +15,11 @@ export function setTime() {
         time:currentTime
     }
 }
+
+export function setDay() {
+    const currentDay = API.getDay();
+    return {
+        type:types.SET_DAY, 
+        day:currentDay
+    }
+}
