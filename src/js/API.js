@@ -1,5 +1,9 @@
 import daysOfWeek from './daysOfWeek';
 import chapelPictures from './chapelPictures';
+import firebase from './modules/firebase'
+const storage = firebase.storage();
+var database = firebase.database();
+
 
 /**
  * @description Abstracted the methods to recieve the JSON object of an html website from the url
@@ -59,19 +63,19 @@ export function convertArrayToMapDining(dataArray, day) {
     var diningCategoryMap = {}; // Create the blank map
     dataArray.forEach(function (diningItem) {
         try {
-        const dayOfWeek = diningItem.Day;
-        const foodTime = diningItem.FoodTime;
-        if (day == dayOfWeek) {
-            if (foodTime.split(' and ')) {
-                for (var foodTimeSplit of foodTime.split(' and ')) {
-                    if (!diningCategoryMap[foodTimeSplit]) diningCategoryMap[foodTimeSplit] = [];
-                    diningCategoryMap[foodTimeSplit].push(diningItem);
+            const dayOfWeek = diningItem.Day;
+            const foodTime = diningItem.FoodTime;
+            if (day == dayOfWeek) {
+                if (foodTime.split(' and ')) {
+                    for (var foodTimeSplit of foodTime.split(' and ')) {
+                        if (!diningCategoryMap[foodTimeSplit]) diningCategoryMap[foodTimeSplit] = [];
+                        diningCategoryMap[foodTimeSplit].push(diningItem);
+                    }
+                } else {
+                    if (!diningCategoryMap[foodTime]) diningCategoryMap[foodTime] = [];
+                    diningCategoryMap[foodTime].push(diningItem);
                 }
-            } else {
-                if (!diningCategoryMap[foodTime]) diningCategoryMap[foodTime] = [];
-                diningCategoryMap[foodTime].push(diningItem);
             }
-        }
         } catch (e) {
         }
     });
@@ -139,3 +143,10 @@ export function getNextWeek(now) {
     end_of_next_week.setSeconds(59)
     return end_of_next_week;
 }
+
+// export function getHomeScreen() {
+//     database.ref('./homeView').on('value', (snapshot) => {
+//         const data = snapshot.val();
+//         debugger;
+//     });
+// }

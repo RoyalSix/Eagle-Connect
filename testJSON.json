@@ -1,0 +1,81 @@
+{
+    "container": {
+        "flex": 1,
+        "backgroundColor": "#FF5E5E",
+        "justifyContent": "flex-start"
+    },
+    "loginHeading": {
+        "fontSize": 30,
+        "textAlign": "center",
+        "margin": 10,
+        "color": "white",
+        "fontFamily": "Arial Rounded MT Bold",
+        "textShadowOffset": {
+            "width": 0,
+            "height": 3
+        },
+        "textShadowRadius": 2,
+        "textShadowColor": "black"
+    },
+    "biolaLogo": {
+        "alignSelf": "center",
+        "height": 190.57142857142858,
+        "width": 187.5,
+        "marginTop": 111.16666666666667,
+        "shadowOpacity": 0.8,
+        "shadowOffset": {
+            "width": 0,
+            "height": 3
+        }
+    },
+    "loginSubHeading": {
+        "fontSize": 20,
+        "margin": 10,
+        "color": "white",
+        "fontFamily": "Arial Rounded MT Bold",
+        "alignSelf": "flex-start",
+        "marginLeft": 31.25,
+        "textShadowOffset": {
+            "width": 0,
+            "height": 3
+        },
+        "textShadowRadius": 2,
+        "textShadowColor": "black"
+    },
+    "loginSubHeadingContainer": {
+        "flexDirection": "column",
+        "alignItems": "center",
+        "justifyContent": "flex-start",
+        "marginVertical": 10
+    },
+    "loginTextField": {
+        "flexDirection": "column",
+        "backgroundColor": "white",
+        "height": 40,
+        "width": 312.5,
+        "borderRadius": 5,
+        "shadowOpacity": 0.8,
+        "shadowOffset": {
+            "width": 0,
+            "height": 3
+        },
+        "marginLeft": 31.25,
+        "fontSize": 30,
+        "paddingLeft": 10
+    },
+    "chapelContainer": {
+        "flex": 1,
+        "marginTop": 20
+    },
+    "chapelSeparator": {
+        "flex": 1,
+        "height": 1,
+        "backgroundColor": "#8E8E8E"
+    },
+    "chapelHeading": {
+        "fontSize": 30,
+        "backgroundColor": "black",
+        "color": "white",
+        "textAlign": "center"
+    }
+}
