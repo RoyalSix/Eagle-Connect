@@ -39,11 +39,10 @@ export function startNewsLoad() {
          */
         getNewsItems((news) => {
             //We have access to chapels here because of the callback
-            dispatch(recieveNewsItems(news))
-        })
-        getExtraNewsItems((news) => {
-            //We have access to chapels here because of the callback
-            dispatch(recieveNewsItems(news))
+            getExtraNewsItems((extraNews) => {
+                //We have access to chapels here because of the callback
+                dispatch(recieveNewsItems({...news, ...extraNews}))
+            })
         })
     }
 }
@@ -114,6 +113,7 @@ export function getExtraNewsItems(callback) {
                 date = item.author.split(' on ')[1].trim();
                 author = item.author.split(' on ')[0].trim();
             } catch (e) {
+                console.log(e);
             }
             newsobjects.push({
                 title,

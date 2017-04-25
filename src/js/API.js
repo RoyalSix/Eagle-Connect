@@ -69,6 +69,7 @@ export function convertArrayToMapDining(dataArray, day) {
     // });
     var diningCategoryMap = {}; // Create the blank map
     dataArray.forEach(function (diningItem) {
+        try {
         const dayOfWeek = diningItem.Day;
         const foodTime = diningItem.FoodTime;
         if (day == dayOfWeek) {
@@ -81,6 +82,8 @@ export function convertArrayToMapDining(dataArray, day) {
                 if (!diningCategoryMap[foodTime]) diningCategoryMap[foodTime] = [];
                 diningCategoryMap[foodTime].push(diningItem);
             }
+        }
+        } catch (e) {
         }
     });
     return diningCategoryMap;
