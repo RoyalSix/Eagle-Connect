@@ -56,17 +56,6 @@ export function getDay() {
 }
 
 export function convertArrayToMapDining(dataArray, day) {
-    // dataArray.sort(function(a, b) {
-    //     var getValue = (day) =>{
-    //         switch(day) {
-    //             case "Breakfast": return 3;
-    //             case "Lunch": return 2;
-    //             case "Dinner": return 1;
-    //             default: 0;
-    //         }
-    //     }
-    //     return getValue(a.FoodTime) < getValue(b.FoodTime); 
-    // });
     var diningCategoryMap = {}; // Create the blank map
     dataArray.forEach(function (diningItem) {
         try {

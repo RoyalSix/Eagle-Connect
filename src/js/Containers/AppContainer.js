@@ -23,6 +23,7 @@ import * as chapelActions from '../Actions/chapelActions';
 import * as eventsActions from '../Actions/eventsActions';
 import * as dinigActions from '../Actions/diningActions';
 import * as newsActions from '../Actions/newsActions';
+import firebase from '../modules/firebase';
 
 export default class App extends Component {
     componentWillMount() {
