@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-export default class myBiolaApp extends Component {
+export default class EagleConnect extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('myBiolaApp', () => myBiolaApp);
+AppRegistry.registerComponent('EagleConnect', () => EagleConnect);

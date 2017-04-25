@@ -1,4 +1,4 @@
-package com.mybiolaapp;
+package com.eagleconnect;
 
 import android.app.Application;
 import android.util.Log;

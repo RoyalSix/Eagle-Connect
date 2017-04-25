@@ -18,9 +18,9 @@ window.vw = vw;
 window.vh = vh;
 
 
-export default class myBiolaApp extends Component {
+export default class EagleConnect extends Component {
     render() {
     return (<App />)
     }
 }
-AppRegistry.registerComponent('myBiolaApp', () => myBiolaApp);
+AppRegistry.registerComponent('EagleConnect', () => EagleConnect);
