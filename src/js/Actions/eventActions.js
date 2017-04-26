@@ -56,7 +56,7 @@ export function getArrayOfEventsFromNodeList(nodeList) {
         //For first loop, run until items are found 
         var eventListItems = nodeList[i].querySelect('li');
         //date and time
-        var eventTitleItems = nodeList[i].querySelect('a');
+        var eventTitleItems = nodeList[i].querySelect('.title');
         //title
         var eventSubtitleItems = nodeList[i].querySelect('.subtitle');
         //subtitle
@@ -75,19 +75,20 @@ export function getArrayOfEventsFromNodeList(nodeList) {
             date = eventListItems[1].textContent;
             time = eventListItems[2].textContent;
 
-            check = eventTitleItems[0].textContent;
+            // check = eventTitleItems[0].textContent;
             
-            //If the first <a> tag is NOT null, make that the title
-            if (check == "")
-            {
-                title = eventTitleItems[1].textContent;
-            }
+            // //If the first <a> tag is NOT null, make that the title
+            // if (check == "")
+            // {
+            //     title = eventTitleItems[1].textContent;
+            // }
 
-            else
-            {
-                title = eventTitleItems[0].textContent;
-            }
-            
+            // else
+            // {
+            //     title = eventTitleItems[0].textContent;
+            // }
+
+            title = eventTitleItems[0].textContent;
             speaker = eventSubtitleItems[0].textContent;
 
         } catch (e) {
