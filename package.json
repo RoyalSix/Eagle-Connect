@@ -9,6 +9,7 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "fast-html-parser": "^1.0.1",
+    "firebase": "^3.9.0",
     "react": "15.4.2",
     "react-native": "0.41.2",
     "react-native-html-parser": "0.0.4",
@@ -20,7 +21,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react",
       "<rootDir>/node_modules/react-dom",
