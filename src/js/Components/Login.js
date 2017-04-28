@@ -17,7 +17,7 @@ import {
 import styles from 'css';
 import images from 'assets';
 
-export default class myBiolaApp extends Component {
+export default class EagleConnect extends Component {
   render() {
     return (
       <View style={styles.container}>

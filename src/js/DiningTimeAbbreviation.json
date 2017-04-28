@@ -1,0 +1,8 @@
+{
+    "[L]": "Lunch",
+    "[D]": "Dinner",
+    "[B]": "Breakfast",
+    "[L, D]": "Lunch and Dinner",
+    "[B, L]": "Breakfast and Lunch",
+    "[B, L D]": "Breakfast, Lunch and Dinner"
+}

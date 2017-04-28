@@ -1,5 +1,5 @@
 {
-  "name": "myBiolaApp",
+  "name": "EagleConnect",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "fast-html-parser": "^1.0.1",
+    "firebase": "^3.9.0",
     "react": "15.4.2",
     "react-native": "0.41.2",
     "react-native-html-parser": "0.0.4",
@@ -18,13 +19,30 @@
     "redux-thunk": "^2.2.0",
     "util": "^0.10.3"
   },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs"
+    ]
+  },
   "devDependencies": {
-    "babel-jest": "19.0.0",
+    "babel-jest": "^19.0.0",
     "babel-preset-react-native": "1.9.1",
     "jest": "19.0.2",
+    "jest-cli": "^19.0.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-test-renderer": "15.4.2"
   },
-  "jest": {
-    "preset": "react-native"
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   }
 }

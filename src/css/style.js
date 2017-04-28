@@ -4,7 +4,11 @@ import {
     Dimensions
 } from 'react-native';
 var { height, width } = Dimensions.get('window');
-module.exports = StyleSheet.create({
+import firebase from '../js/modules/firebase'
+const storage = firebase.storage();
+var database = firebase.database();
+
+var css = {
     container: {
         flex: 1,
         backgroundColor: "#FF5E5E",
@@ -59,7 +63,7 @@ module.exports = StyleSheet.create({
     },
     chapelContainer: {
         flex: 1,
-        marginTop: 20,
+        marginTop: 20
     },
     chapelSeparator: {
         flex: 1,
@@ -72,4 +76,11 @@ module.exports = StyleSheet.create({
         color: 'white',
         textAlign: 'center'
     }
+}
+
+database.ref('style').on('value', (snapshot) => {
+    const data = snapshot.val();
 });
+var localStyles = StyleSheet.create(css);
+
+export default localStyles;

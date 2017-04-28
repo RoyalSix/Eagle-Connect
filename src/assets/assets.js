@@ -1,2 +1,9 @@
 export const biolaLogo = require('./biolaLogo.png');
-export const chapelTab = require('./chapelTab.png')
+export const chapelTab = require('./chapelTab.png');
+export const home_icon = require('./home_icon.png');
+export const gradient = require('./gradient.png');
+export const biola_picture = require('./biola_picture.jpg');
+export const biola_gym = require('./biola_gym.jpg');
+export const calvary = require('./calvary.jpg');
+export const sutherland = require('./sutherland.jpg');
+export const mayers = require('./mayers.jpg');

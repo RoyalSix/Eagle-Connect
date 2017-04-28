@@ -1,13 +1,17 @@
 import chapelReducer from './chapelReducer';
 import newsReducer from './newsReducer';
-import eventReducer from './eventReducer';
+import eventsReducer from './eventsReducer';
 import prayerReducer from './prayerReducer';
 import diningReducer from './diningReducer';
+import homeReducer from './homeReducer';
+import navigationReducer from './navigationReducer';
 
 export {
   chapelReducer,
   newsReducer,
-  eventReducer,
+  eventsReducer,
   prayerReducer,
-  diningReducer
+  diningReducer,
+  homeReducer,
+  navigationReducer
 };

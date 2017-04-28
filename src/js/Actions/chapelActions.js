@@ -9,7 +9,6 @@ import { DOMParser } from 'react-native-html-parser';
 //This is an external library used to parse html. React native does not 
 //support this natively
 
-
 /**
  * @description - This is a redux action that will initiate a chapel load.
  * This does two things for us:
@@ -45,18 +44,18 @@ export function startChapelLoad() {
 }
 
 /**
- * @description - This function is a redux action that sends the chapels to the store
- * So that our components can use it as props
- * The type 'RECIEVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
- * 
- * @param {object} chapels 
- */
-export function recieveChapels(chapels) {
-    return {
-        type: types.RECIEVE_CHAPEL_LOAD,
-        loadingChapels: false,
-        chapels: chapels
-    }
+ * @description - This function is a redux action that sends the chapels to the store
+ * So that our components can use it as props
+ * The type 'RECEIVE_CHAPEL_LOAD' specifies which reducer will recieve the action.
+ * 
+ * @param {object} chapels 
+ */
+export function recieveChapels(chapels) {
+    return {
+        type: types.RECEIVE_CHAPEL_LOAD,
+        loadingChapels: false,
+        chapels: chapels
+    }
 }
 
 
@@ -67,7 +66,7 @@ export function recieveChapels(chapels) {
  * @param {function} callback 
  */
 export function getChapels(callback) {
-    getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
+    getHTMLFromURL('https://www.biola.edu/chapel', function (htmlString) {
         //I abstracted out the react native fetch call for you no need to worry
         //about the details of using fetch and promises
         let doc = new DOMParser().parseFromString(htmlString, 'text/html');

@@ -5,7 +5,8 @@ import {
     Text,
     View,
     Image,
-    TextInput
+    TextInput,
+    StatusBar
 } from 'react-native';
 import * as reducers from '../Reducers';
 import thunk from 'redux-thunk';
@@ -19,17 +20,18 @@ const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
 
 import * as chapelActions from '../Actions/chapelActions';
-
-//Import the action you created to start the load 
-import * as eventActions from '../Actions/eventActions';
-
+import * as eventsActions from '../Actions/eventsActions';
+import * as dinigActions from '../Actions/diningActions';
+import * as newsActions from '../Actions/newsActions';
+import firebase from '../modules/firebase';
 
 export default class App extends Component {
     componentWillMount() {
         store.dispatch(chapelActions.startChapelLoad());
-
-        //Call the action you created to start the load
-        store.dispatch(eventActions.startEventLoad());
+        store.dispatch(eventsActions.startEventsLoad());
+        store.dispatch(dinigActions.startDiningLoad());
+        store.dispatch(newsActions.startNewsLoad());
+        StatusBar.setHidden(true, 'none');
     }
     render() {
         return (
