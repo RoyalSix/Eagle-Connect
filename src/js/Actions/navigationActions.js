@@ -18,8 +18,10 @@ export function setTime() {
 
 export function setDay() {
     const currentDay = API.getDay();
+    const tomorrow = API.getTomorrowDay();
     return {
         type:types.SET_DAY, 
-        day:currentDay
+        day:currentDay,
+        tomorrow: tomorrow
     }
 }

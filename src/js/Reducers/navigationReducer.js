@@ -2,8 +2,9 @@ import * as types from '../Actions/actionTypes';
 
 export function navigationReducer(state = {
     currentTab: 0,
-    day: "Wednesday",
-    time: null
+    day: null,
+    time: null,
+    tomorrow:null
 }, action) {
     switch (action.type) {
         case types.CHANGE_TAB:
@@ -19,7 +20,8 @@ export function navigationReducer(state = {
         case types.SET_DAY:
             return {
                 ...state,
-                day: action.day
+                day: action.day,
+                tomorrow: action.tomorrow
             }
         default:
             return state;

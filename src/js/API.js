@@ -144,6 +144,11 @@ export function getNextWeek(now) {
     return end_of_next_week;
 }
 
+export function getTomorrowDay() {
+    const tomorrow = new Date().getDay() + 1 > 7 ?  Math.abs((new Date().getDay() + 1 ) - 7) : new Date().getDay() + 1
+    return daysOfWeek[tomorrow];
+}
+
 // export function getHomeScreen() {
 //     database.ref('./homeView').on('value', (snapshot) => {
 //         const data = snapshot.val();

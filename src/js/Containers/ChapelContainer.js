@@ -41,13 +41,13 @@ class ChapelContainer extends Component {
          * This is a standard redux flow Action -> Reducer -> Container (this file) -> Component (Chapel.js)
          */
         return (
-            <Chapel dataSource={dataSource} />
+            <Chapel {...this.props} dataSource={dataSource} />
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    return { ...state.chapelReducer }
+    return { ...state.chapelReducer, ...state.navigationReducer }
     /**
      * This function allows us to take whatever is in the store of our choosing (chapelReducer)
      * And send it the this containers props {@see this.props.chapel in render function}
