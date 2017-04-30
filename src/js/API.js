@@ -54,6 +54,26 @@ export function getTime() {
     return todisplay
 }
 
+export function getTimeFromDateObject(time) {
+    var timeOfDay = "AM";
+    function pad(n) {
+        return (n < 10) ? '0' + n : n;
+    }
+
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+
+    if (hours > 12) {
+        hours -= 12;
+        timeOfDay = "PM"
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    var todisplay = pad(hours) + ':' + pad(minutes) + " " + timeOfDay;
+    return todisplay
+}
+
 export function getDay() {
     var dayAbbr = Date().split(" ")[0];
     return daysOfWeek[dayAbbr];
@@ -142,6 +162,22 @@ export function getNextWeek(now) {
     end_of_next_week.setMinutes(59)
     end_of_next_week.setSeconds(59)
     return end_of_next_week;
+}
+
+export function postMessage(message) {
+    database.ref(`boardMessages/`).push({
+        message,
+        time: Date()
+    }).catch((err) => {
+        console.log(err)
+    });
+}
+
+export function getBoardMessages(callback) {
+    database.ref('boardMessages').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) callback(data);
+    })
 }
 
 // export function getHomeScreen() {

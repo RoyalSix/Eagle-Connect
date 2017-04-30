@@ -7,3 +7,4 @@ export const biola_gym = require('./biola_gym.jpg');
 export const calvary = require('./calvary.jpg');
 export const sutherland = require('./sutherland.jpg');
 export const mayers = require('./mayers.jpg');
+export const write_message = require('./write_message.png')

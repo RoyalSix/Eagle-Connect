@@ -14,3 +14,5 @@ export const CHANGE_TAB = "CHANGE_TAB";
 
 export const SET_TIME = "SET_TIME";
 export const SET_DAY = "SET_DAY";
+
+export const GET_BOARD_MESSAGES = "GET_BOARD_MESSAGES";
