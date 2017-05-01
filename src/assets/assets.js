@@ -8,3 +8,4 @@ export const calvary = require('./calvary.jpg');
 export const sutherland = require('./sutherland.jpg');
 export const mayers = require('./mayers.jpg');
 export const write_message = require('./write_message.png')
+export const back_button = require('./back_button.png');
