@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@google-cloud/debug-agent": "^1.0.0",
+    "badwords-list": "^1.0.0",
     "cheerio": "^0.22.0",
     "fast-html-parser": "^1.0.1",
     "firebase": "^3.9.0",
