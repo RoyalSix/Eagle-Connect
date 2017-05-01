@@ -169,12 +169,13 @@ export function getNextWeek(now) {
     return end_of_next_week;
 }
 
-export function postMessage(message, callback) {
+export function postMessage(message, username, callback) {
         fetch(`http://www.purgomalum.com/service/xml?text=${message}`).then((response) => response.text()).then((htmlString) => {
             let filteredText = htmlString.match(/<result>(.*)<\/result>/)[1];
             if (!message.match(badWordRegex) && message == filteredText) {
                 database.ref(`boardMessages/`).push({
                     message,
+                    username,
                     time: Date()
                 }).then((snapshot) => {
                     callback(snapshot.key)

@@ -14,14 +14,18 @@ class BoardContainer extends Component {
         for (var message in messagesObj) {
             var time = API.getTimeFromDateObject(new Date(messagesObj[message].time));
             messageArray.push(
-                <View key={`${time}_${message}`} style={{ flexDirection:'row', height: 30, borderColor: 'white', borderBottomWidth: .2, flex: 1, justifyContent: 'flex-start' }}>
-                    <Text style={{ color: 'grey', margin: 5, flex:1 }}>{messagesObj[message].message}</Text>
-                    <Text style={{ fontSize: 12, color: 'grey', margin: 5 }}>{time}</Text>
+                <View key={`${time}_${message}`} style={{ borderColor: 'white', borderBottomWidth: .2, justifyContent:'center'  }}>
+                    <Text style={{marginHorizontal:5, color:'#E0E0E0', textAlign:'left', marginTop:5}}>{messagesObj[message].username}</Text>
+                    <View style={{ flexDirection: 'row', }}>
+                        <Text numberOfLines={3} style={{ color: 'grey', marginHorizontal:5, marginBottom: 5, flex: 1 }}>{messagesObj[message].message}</Text>
+                        <Text style={{ fontSize: 12, color: 'grey', margin: 5 }}>{time}</Text>
+                    </View>
                 </View>
             )
         }
-        return messageArray
+        return messageArray;
     }
+
     render() {
         const boardMessages = this.getBoardMessageViews(this.props.messages)
         return (
@@ -31,13 +35,13 @@ class BoardContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { ...state.boardReducer }
+    return { ...state.boardReducer, ...state.homeReducer }
 }
 
 const mapDispatchToState = (dispatch, ownProps) => {
     return {
-        postOnBoard: (message) => {
-            dispatch(boardActions.postMesssageToBoad(message))
+        postOnBoard: (message, username) => {
+            dispatch(boardActions.postMesssageToBoad(message, username))
         }
     }
 }

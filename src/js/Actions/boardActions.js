@@ -4,9 +4,9 @@ import firebase from '../modules/firebase'
 var database = firebase.database();
 const TWELVE_HOURS = 4.32e+7
 
-export function postMesssageToBoad(message) {
+export function postMesssageToBoad(message, username) {
     return (dispatch) => {
-        API.postMessage(message, (snapshotKey) => {
+        API.postMessage(message, username, (snapshotKey) => {
             setTimeout(() => {
                 database.ref(`boardMessages/${snapshotKey}`).remove();
             }, TWELVE_HOURS)
