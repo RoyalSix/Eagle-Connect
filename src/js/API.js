@@ -1,8 +1,9 @@
 import daysOfWeek from './daysOfWeek';
 import chapelPictures from './chapelPictures';
-import firebase from './modules/firebase'
+import firebase from './modules/firebase';
 const storage = firebase.storage();
 var database = firebase.database();
+const TWELVE_HOURS = 4.32e+7
 
 
 /**
@@ -164,19 +165,30 @@ export function getNextWeek(now) {
     return end_of_next_week;
 }
 
-export function postMessage(message) {
-    database.ref(`boardMessages/`).push({
-        message,
-        time: Date()
-    }).catch((err) => {
-        console.log(err)
+export function postMessage(message, callback) {
+    fetch(`http://www.purgomalum.com/service/xml?text=${message}`).then((response) => response.text()).then((htmlString) => {
+        debugger;
+        database.ref(`boardMessages/`).push({
+            message,
+            time: Date()
+        }).then((snapshot) => {
+            callback(snapshot.key)
+        }).catch((err) => { console.log(err) });
     });
+
 }
 
 export function getBoardMessages(callback) {
     database.ref('boardMessages').on('value', (snapshot) => {
         const data = snapshot.val();
-        if (data) callback(data);
+        var updatedData = {};
+        for (var messageKey in data) {
+            var messageObj = data[messageKey];
+            if (new Date() - new Date(messageObj.time) > TWELVE_HOURS) {
+                database.ref(`boardMessages/${messageKey}`).remove();
+            } else updatedData[messageKey] = messageObj;
+        }
+        if (updatedData) callback(updatedData);
     })
 }
 
