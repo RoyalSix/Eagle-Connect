@@ -107,8 +107,10 @@ export function getExtraNewsItems(callback) {
             var description = "";
             var author = "";
             var date = "";
+            var url = "";
             try {
                 title = item.header;
+                url = item.header_url;
                 description = item.description;
                 date = item.author.split(' on ')[1].trim();
                 author = item.author.split(' on ')[0].trim();
@@ -119,7 +121,8 @@ export function getExtraNewsItems(callback) {
                 title,
                 description,
                 author,
-                date
+                date,
+                url
             })
         }
         callback(newsobjects);
