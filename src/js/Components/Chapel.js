@@ -60,15 +60,15 @@ export default class ChapelContainer extends Component {
 
     onLayout() {
         const _this = this;
-        if (this[this.props.tomorrow]) {
-            this[this.props.tomorrow].measure((fx, fy, width, height, px, py) => {
-                _this.refs.listView.scrollTo({y:fy})
-            })
-        } else if (this[this.props.day]) {
+        if (this[this.props.day]) {
             this[this.props.day].measure((fx, fy, width, height, px, py) => {
                 _this.refs.listView.scrollTo({y:fy})
             })
-        }
+        } else if (this[this.props.tomorrow]) {
+            this[this.props.tomorrow].measure((fx, fy, width, height, px, py) => {
+                _this.refs.listView.scrollTo({y:fy})
+            })
+        } 
     }
 
     render() {
