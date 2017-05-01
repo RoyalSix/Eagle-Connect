@@ -69,7 +69,6 @@ class NavigationContainer extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <View style={{ flex: 1, backgroundColor: 'black', }}>
                 <View style={{ top:0, left:0, flexDirection: 'row', justifyContent: 'space-between', position:'absolute', zIndex:2, backgroundColor:'rgba(0,0,0,0)' }}>
@@ -77,9 +76,8 @@ class NavigationContainer extends Component {
                     <Text style={{ color: 'grey', fontSize: 17, margin: 10 }}>{this.props.time}</Text>
                 </View>
                 <ScrollableTabView tabBarPosition={'bottom'} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
-                    tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ marginBottom: -1, backgroundColor: 'black', zIndex:1 }}
-                    tabBarUnderlineStyle={{ backgroundColor: 'red' }}
-                    onChangeTab={this.handleChangeTab}>
+                    tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ flex:1, marginBottom: -1, backgroundColor: 'black', zIndex:1 }}
+                    tabBarUnderlineStyle={{ backgroundColor: 'red' }}>
                     <ChapelContainer tabLabel="CHAPELS" {...this.props} />
                     <DiningContainer tabLabel="DINING" {...this.props} />
                     <HomeContainer tabLabel="HOME" {...this.props} />
@@ -94,6 +92,7 @@ class NavigationContainer extends Component {
 
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return { ...state.navigationReducer }
 }
 

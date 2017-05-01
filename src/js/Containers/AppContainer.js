@@ -23,6 +23,7 @@ import * as chapelActions from '../Actions/chapelActions';
 import * as eventsActions from '../Actions/eventsActions';
 import * as dinigActions from '../Actions/diningActions';
 import * as newsActions from '../Actions/newsActions';
+import * as boardActions from '../Actions/boardActions';
 import firebase from '../modules/firebase';
 
 export default class App extends Component {
@@ -31,6 +32,7 @@ export default class App extends Component {
         store.dispatch(eventsActions.startEventsLoad());
         store.dispatch(dinigActions.startDiningLoad());
         store.dispatch(newsActions.startNewsLoad());
+        store.dispatch(boardActions.getBoardMessages());
         StatusBar.setHidden(true, 'none');
     }
     render() {

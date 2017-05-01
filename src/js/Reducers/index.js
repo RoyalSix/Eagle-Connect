@@ -5,6 +5,7 @@ import prayerReducer from './prayerReducer';
 import diningReducer from './diningReducer';
 import homeReducer from './homeReducer';
 import navigationReducer from './navigationReducer';
+import boardReducer from './boardReducer';
 
 export {
   chapelReducer,
@@ -13,5 +14,6 @@ export {
   prayerReducer,
   diningReducer,
   homeReducer,
-  navigationReducer
+  navigationReducer,
+  boardReducer
 };

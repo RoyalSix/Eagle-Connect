@@ -40,7 +40,24 @@
 		697C02071EAEE00A00988FCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 697C02051EAEE00A00988FCC /* GoogleService-Info.plist */; };
 		697C02081EAEE00A00988FCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 697C02051EAEE00A00988FCC /* GoogleService-Info.plist */; };
 		697C02091EAEE00A00988FCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 697C02051EAEE00A00988FCC /* GoogleService-Info.plist */; };
+		69F7BF201EB72182009D1BB8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1C1EB72182009D1BB8 /* Bolts.framework */; };
+		69F7BF211EB72182009D1BB8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1C1EB72182009D1BB8 /* Bolts.framework */; };
+		69F7BF221EB72182009D1BB8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1C1EB72182009D1BB8 /* Bolts.framework */; };
+		69F7BF231EB72182009D1BB8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1C1EB72182009D1BB8 /* Bolts.framework */; };
+		69F7BF241EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1D1EB72182009D1BB8 /* FBSDKCoreKit.framework */; };
+		69F7BF251EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1D1EB72182009D1BB8 /* FBSDKCoreKit.framework */; };
+		69F7BF261EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1D1EB72182009D1BB8 /* FBSDKCoreKit.framework */; };
+		69F7BF271EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1D1EB72182009D1BB8 /* FBSDKCoreKit.framework */; };
+		69F7BF281EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1E1EB72182009D1BB8 /* FBSDKLoginKit.framework */; };
+		69F7BF291EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1E1EB72182009D1BB8 /* FBSDKLoginKit.framework */; };
+		69F7BF2A1EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1E1EB72182009D1BB8 /* FBSDKLoginKit.framework */; };
+		69F7BF2B1EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1E1EB72182009D1BB8 /* FBSDKLoginKit.framework */; };
+		69F7BF2C1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1F1EB72182009D1BB8 /* FBSDKShareKit.framework */; };
+		69F7BF2D1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1F1EB72182009D1BB8 /* FBSDKShareKit.framework */; };
+		69F7BF2E1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1F1EB72182009D1BB8 /* FBSDKShareKit.framework */; };
+		69F7BF2F1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F7BF1F1EB72182009D1BB8 /* FBSDKShareKit.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		D8FB0E810A0C48D3A74416C3 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5614968B4384FED8B69E8D8 /* libRCTFBSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +236,13 @@
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
 		};
+		69F7BEB41EB70166009D1BB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CF5BF74D61490C8A4EC7C5 /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -259,11 +283,17 @@
 		2D02E4901E0B4A5D006451C7 /* EagleConnect-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EagleConnect-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		697C02051EAEE00A00988FCC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69F7BF1C1EB72182009D1BB8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		69F7BF1D1EB72182009D1BB8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		69F7BF1E1EB72182009D1BB8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		69F7BF1F1EB72182009D1BB8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		83CF5BF74D61490C8A4EC7C5 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		9E653CA1159F998F73CAC640 /* Pods-EagleConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EagleConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EagleConnect/Pods-EagleConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		BED8AAF8C69EF135E50B4C2D /* libPods-EagleConnect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EagleConnect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E81F35AA32930D7762C64851 /* Pods-EagleConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EagleConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-EagleConnect/Pods-EagleConnect.release.xcconfig"; sourceTree = "<group>"; };
+		F5614968B4384FED8B69E8D8 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				69F7BF251EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */,
+				69F7BF2D1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */,
+				69F7BF291EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */,
+				69F7BF211EB72182009D1BB8 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +315,7 @@
 			files = (
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				69F7BF2C1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -289,8 +324,12 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
+				69F7BF241EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				0EDC3196243648D520681BBD /* libPods-EagleConnect.a in Frameworks */,
+				D8FB0E810A0C48D3A74416C3 /* libRCTFBSDK.a in Frameworks */,
+				69F7BF281EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */,
+				69F7BF201EB72182009D1BB8 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +342,11 @@
 				2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */,
 				2D02E4C41E0B4AEC006451C7 /* libRCTLinking-tvOS.a in Frameworks */,
 				2D02E4C51E0B4AEC006451C7 /* libRCTNetwork-tvOS.a in Frameworks */,
+				69F7BF261EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */,
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
+				69F7BF221EB72182009D1BB8 /* Bolts.framework in Frameworks */,
+				69F7BF2E1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */,
+				69F7BF2A1EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 			);
@@ -313,6 +356,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F7BF2F1EB72182009D1BB8 /* FBSDKShareKit.framework in Frameworks */,
+				69F7BF231EB72182009D1BB8 /* Bolts.framework in Frameworks */,
+				69F7BF271EB72182009D1BB8 /* FBSDKCoreKit.framework in Frameworks */,
+				69F7BF2B1EB72182009D1BB8 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +482,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		69F7BEAE1EB70166009D1BB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69F7BEB51EB70166009D1BB8 /* libRCTFBSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		6F09CDD1877A93253A26DB97 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +522,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				83CF5BF74D61490C8A4EC7C5 /* RCTFBSDK.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -508,6 +564,10 @@
 		E4A40ED6F05B32D8887A50F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69F7BF1C1EB72182009D1BB8 /* Bolts.framework */,
+				69F7BF1D1EB72182009D1BB8 /* FBSDKCoreKit.framework */,
+				69F7BF1E1EB72182009D1BB8 /* FBSDKLoginKit.framework */,
+				69F7BF1F1EB72182009D1BB8 /* FBSDKShareKit.framework */,
 				BED8AAF8C69EF135E50B4C2D /* libPods-EagleConnect.a */,
 			);
 			name = Frameworks;
@@ -597,7 +657,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 820;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -640,6 +700,10 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = 69F7BEAE1EB70166009D1BB8 /* Products */;
+					ProjectRef = 83CF5BF74D61490C8A4EC7C5 /* RCTFBSDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -850,6 +914,13 @@
 			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		69F7BEB51EB70166009D1BB8 /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = 69F7BEB41EB70166009D1BB8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1048,6 +1119,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1055,6 +1130,10 @@
 				INFOPLIST_FILE = EagleConnectTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1071,9 +1150,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EagleConnectTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1088,10 +1175,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E653CA1159F998F73CAC640 /* Pods-EagleConnect.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = EagleConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1109,9 +1202,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E81F35AA32930D7762C64851 /* Pods-EagleConnect.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = EagleConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1137,9 +1236,17 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "EagleConnect-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1164,9 +1271,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "EagleConnect-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1190,9 +1305,17 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "EagleConnect-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.EagleConnect-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1212,9 +1335,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 37NLHMSHRD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "EagleConnect-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.EagleConnect-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
