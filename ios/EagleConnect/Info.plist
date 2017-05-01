@@ -38,6 +38,15 @@
                 <key>NSExceptionAllowsInsecureHTTPLoads</key>
                 <true/>
             </dict>
+			<key>purgomalum.com</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
