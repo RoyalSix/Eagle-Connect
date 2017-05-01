@@ -209,6 +209,43 @@ export function postMessage(message, username, callback) {
         })
     }
 
+export function getTomorrowDay() {
+    const tomorrow = new Date().getDay() + 1 > 7 ? Math.abs((new Date().getDay() + 1) - 7) : new Date().getDay() + 1
+    return daysOfWeek[tomorrow];
+}
+
+export function getTimeOfDay() {
+    var morning_start = new Date();
+    morning_start.setHours(7);
+    morning_start.setMinutes(0);
+    morning_start.setMilliseconds(0);
+
+    var afternoon_start = new Date();
+    afternoon_start.setHours(10);
+    afternoon_start.setMinutes(30);
+    afternoon_start.setMilliseconds(0);
+
+    var night_start = new Date();
+    night_start.setHours(4);
+    night_start.setMinutes(30);
+    night_start.setMilliseconds(0);
+
+    var night_end = new Date();
+    night_end.setHours(7);
+    night_end.setMinutes(30);
+    night_end.setMilliseconds(0);
+
+    var currentDate = new Date();
+    if (currentDate <= afternoon_start) {
+        return "Breakfast";
+    } else if (currentDate >= afternoon_start && currentDate <= night_start) {
+        return "Lunch";
+    }
+    else if (currentDate >= night_start) {
+        return "Dinner";
+    }
+}
+
 // export function getHomeScreen() {
 //     database.ref('./homeView').on('value', (snapshot) => {
 //         const data = snapshot.val();

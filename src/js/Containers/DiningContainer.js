@@ -32,8 +32,9 @@ class DiningContainer extends Component {
             });
         const mappedData = API.convertArrayToMapDining(this.props.dining, this.props.day);
         var dataSource = listSource.cloneWithRowsAndSections(mappedData);
+        var timeOfDay = API.getTimeOfDay();
         return (
-            <Dining dataSource={dataSource}/>
+            <Dining dataSource={dataSource} timeOfDay={timeOfDay}/>
         )
     }
 }

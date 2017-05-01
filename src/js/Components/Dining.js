@@ -7,6 +7,11 @@ import {
 import style from 'css';
 
 export default class DiningContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.renderSectionHeader = this.renderSectionHeader.bind(this);
+        this.onLayout = this.onLayout.bind(this);
+    }
     renderRow(data) {
         //FoodName, FoodDescription, FoodTime, FoodLocation, Day
         function titleCase(phrase) {
@@ -32,18 +37,41 @@ export default class DiningContainer extends Component {
         return (<View key={`sep:${sectionId}:${rowId}`} style={style.chapelSeparator} />)
     }
     renderSectionHeader(sectionData, sectionId) {
-        if (Object.keys(sectionData).length) return <Text style={{ fontWeight: "700", color: 'white', fontSize: 25, padding: 5, backgroundColor: 'black', flex: 1 }}>{sectionId}</Text>
+        const _this = this;
+        if (Object.keys(sectionData).length) {
+            return (
+                <Text ref={(sectionHeaderComponent) => {
+                    if (_this.props.timeOfDay == sectionId) {
+                        _this[sectionId] = sectionHeaderComponent;
+                    }
+                }}
+                    style={{ fontWeight: "700", color: 'white', fontSize: 25, padding: 5, backgroundColor: 'black', flex: 1 }}>{sectionId}</Text>);
+        }
         else return (<View></View>)
     }
+
+    onLayout() {
+        const _this = this;
+        setTimeout(() => {
+            if (this[this.props.timeOfDay]) {
+                this[this.props.timeOfDay].measure((fx, fy, width, height, px, py) => {
+                    _this.refs.listView.scrollTo({ y: fy })
+                })
+            }
+        }, 100)
+    }
+
     render() {
         return (
             <ListView
+                ref="listView"
                 style={style.chapelContainer}
                 dataSource={this.props.dataSource}
                 renderRow={this.renderRow}
                 renderSeparator={this.renderSeparator}
                 renderHeader={this.renderHeader}
                 renderSectionHeader={this.renderSectionHeader}
+                onLayout={this.onLayout}
             />
         )
     }

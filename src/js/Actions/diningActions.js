@@ -41,8 +41,9 @@ export function getDiningItems(callback) {
 }
 
 export function getArrayOfDiningFromNodeList(nodeList) {
-    var diningList = [];
-
+    var diningListBreakfast = [];
+    var diningListLunch = [];
+    var diningListDinner = [];
     for (var i = 1; i < nodeList.length; i++) {
         //This loop runs through each row which represents each food station.    
         //i = 0 would pull weekday names, within that array would be days ([0][1] = Mon, [0][2] = Tue)
@@ -91,10 +92,13 @@ export function getArrayOfDiningFromNodeList(nodeList) {
             }
             catch (e) {
             }
-            diningList.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
+            console.log({ FoodName, FoodDescription, FoodTime, FoodLocation, Day })
+            if (FoodTime == "Breakfast") diningListBreakfast.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
+            if (FoodTime == "Lunch") diningListLunch.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
+            if (FoodTime == "Dinner") diningListDinner.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
         }
     }
-    return diningList;
+    return [...diningListBreakfast, ...diningListLunch, ...diningListDinner];
 }
 
 export function getHTMLFromURL(url, callback) {

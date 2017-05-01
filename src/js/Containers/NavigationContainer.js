@@ -65,7 +65,7 @@ class NavigationContainer extends Component {
     }
 
     handleChangeTab(index) {
-        //this.props.changeTab(index.i);
+        this.props.changeTab(index.i);
     }
 
     render() {
