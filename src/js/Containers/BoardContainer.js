@@ -14,7 +14,7 @@ class BoardContainer extends Component {
         for (var message in messagesObj) {
             var time = API.getTimeFromDateObject(new Date(messagesObj[message].time));
             messageArray.push(
-                <View style={{ flexDirection:'row', height: 30, borderColor: 'white', borderBottomWidth: .2, flex: 1, justifyContent: 'flex-start' }}>
+                <View key={`${time}_${message}`} style={{ flexDirection:'row', height: 30, borderColor: 'white', borderBottomWidth: .2, flex: 1, justifyContent: 'flex-start' }}>
                     <Text style={{ color: 'grey', margin: 5, flex:1 }}>{messagesObj[message].message}</Text>
                     <Text style={{ fontSize: 12, color: 'grey', margin: 5 }}>{time}</Text>
                 </View>
