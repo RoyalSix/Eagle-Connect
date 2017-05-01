@@ -29,7 +29,7 @@ export function loginFB() {
     return (dispatch) => {
         AccessToken.getCurrentAccessToken().then(
             (data) => {
-                if (data.accessToken) dispatch(getFBUsername())
+                if (data && data.accessToken) dispatch(getFBUsername())
                 else {
                     LoginManager.logInWithReadPermissions(['public_profile']).then(
                         function (result) {
