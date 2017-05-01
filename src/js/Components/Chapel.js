@@ -29,7 +29,7 @@ export default class ChapelContainer extends Component {
                     <View style={{ flexDirection: 'column', justifyContent: 'space-between', margin: 5 }}>
                         <Text style={{ fontSize: 15, color: 'black' }}>Time: {date}</Text>
                         {data.speaker ? <Text style={{ fontSize: 15, color: 'black', width: 200 }}>Speaker: {data.speaker}</Text> : null}
-                        <Text style={{ fontSize: 15, color: 'black' }}>{data.title}</Text>
+                        <Text style={{ width:200, fontSize: 15, color: 'black' }}>{data.title}</Text>
                     </View>
                 </View>
             </View>
