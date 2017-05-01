@@ -65,7 +65,7 @@ class NavigationContainer extends Component {
     }
 
     handleChangeTab(index) {
-        //this.props.changeTab(index.i);
+        this.props.changeTab(index.i);
     }
 
     render() {
@@ -78,7 +78,8 @@ class NavigationContainer extends Component {
                 </View>
                 <ScrollableTabView tabBarPosition={'bottom'} renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
                     tabBarBackgroundColor='black' initialPage={2} locked={false} style={{ marginBottom: -1, backgroundColor: 'black', zIndex:1 }}
-                    tabBarUnderlineStyle={{ backgroundColor: 'red' }}>
+                    tabBarUnderlineStyle={{ backgroundColor: 'red' }}
+                    onChangeTab={this.handleChangeTab}>
                     <ChapelContainer tabLabel="CHAPELS" {...this.props} />
                     <DiningContainer tabLabel="DINING" {...this.props} />
                     <HomeContainer tabLabel="HOME" {...this.props} />
