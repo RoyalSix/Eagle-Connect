@@ -7,5 +7,9 @@ var firebaseConfig = {
     storageBucket: "eagle-connect-65e5b.appspot.com",
     messagingSenderId: "1055675326250"
 };
+firebase.database.enableLogging(true);
+firebase.database.enableLogging(function(message) {
+  console.log("[FIREBASE]", message);
+});
 
 export default firebase.initializeApp(firebaseConfig);

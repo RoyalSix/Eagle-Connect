@@ -92,7 +92,6 @@ class NavigationContainer extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return { ...state.navigationReducer }
 }
 

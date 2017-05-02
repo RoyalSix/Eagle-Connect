@@ -115,7 +115,7 @@ export function getExtraNewsItems(callback) {
                 date = item.author.split(' on ')[1].trim();
                 author = item.author.split(' on ')[0].trim();
             } catch (e) {
-                console.log(e);
+                console.warn(e);
             }
             newsobjects.push({
                 title,

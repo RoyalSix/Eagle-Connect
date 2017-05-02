@@ -91,7 +91,6 @@ export function getArrayOfDiningFromNodeList(nodeList) {
             }
             catch (e) {
             }
-            console.log({ FoodName, FoodDescription, FoodTime, FoodLocation, Day })
             if (FoodTime == "Breakfast") diningListBreakfast.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
             if (FoodTime == "Lunch") diningListLunch.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
             if (FoodTime == "Dinner") diningListDinner.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
