@@ -4,9 +4,6 @@ import {
     Dimensions
 } from 'react-native';
 var { height, width } = Dimensions.get('window');
-import firebase from '../js/modules/firebase'
-const storage = firebase.storage();
-var database = firebase.database();
 
 var css = {
     container: {
@@ -77,10 +74,6 @@ var css = {
         textAlign: 'center'
     }
 }
-
-database.ref('style').on('value', (snapshot) => {
-    const data = snapshot.val();
-});
 var localStyles = StyleSheet.create(css);
 
 export default localStyles;

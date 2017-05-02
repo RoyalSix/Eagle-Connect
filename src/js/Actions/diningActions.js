@@ -1,6 +1,5 @@
 import * as types from './actionTypes';
 import { DOMParser } from 'react-native-html-parser';
-import * as API from '../API'
 import DiningTimeAbbreviation from '../DiningTimeAbbreviation';
 import daysOfWeek from '../daysOfWeek';
 
