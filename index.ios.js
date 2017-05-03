@@ -21,7 +21,7 @@ window.vh = vh;
 export default class EagleConnect extends Component {
     constructor(props) {
         super(props);
-        mainTests();
+        if (__DEV__) mainTests();
     }
     render() {
         return (<App />)

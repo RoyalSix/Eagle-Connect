@@ -169,7 +169,7 @@ export function getNextWeek(now) {
     return end_of_next_week;
 }
 
-export function postMessage(message, username, callback) {
+export function postMessage(message, username, callback, testMode=false) {
         fetch(`http://www.purgomalum.com/service/xml?text=${message}`).then((response) => response.text()).then((htmlString) => {
             let filteredText = htmlString.match(/<result>(.*)<\/result>/)[1];
             if (!message.match(badWordRegex) && message == filteredText) {
@@ -178,9 +178,9 @@ export function postMessage(message, username, callback) {
                     username,
                     time: Date()
                 }).then((snapshot) => {
-                    callback(snapshot.key)
+                    return callback(snapshot.key)
                 }).catch((err) => { console.log(err) });
-            } else {
+            } else if (!testMode) {
                 Alert.alert(
                     'Oops! You used a rude or inappropriate word.',
                     'If you use another you may be banned.',
@@ -190,6 +190,7 @@ export function postMessage(message, username, callback) {
                     { cancelable: false }
                 )
             }
+            callback();
         });
 
     }
