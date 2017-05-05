@@ -227,12 +227,12 @@ export function getTimeOfDay() {
     afternoon_start.setMilliseconds(0);
 
     var night_start = new Date();
-    night_start.setHours(4);
+    night_start.setHours(4 + 12);
     night_start.setMinutes(30);
     night_start.setMilliseconds(0);
 
     var night_end = new Date();
-    night_end.setHours(7);
+    night_end.setHours(7 + 12);
     night_end.setMinutes(30);
     night_end.setMilliseconds(0);
 

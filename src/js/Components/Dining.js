@@ -53,8 +53,9 @@ export default class DiningContainer extends Component {
     onLayout() {
         const _this = this;
         setTimeout(() => {
-            if (this[this.props.timeOfDay]) {
-                this[this.props.timeOfDay].measure((fx, fy, width, height, px, py) => {
+            console.log(_this.props)
+            if (this[_this.props.timeOfDay]) {
+                this[_this.props.timeOfDay].measure((fx, fy, width, height, px, py) => {
                     _this.refs.listView.scrollTo({ y: fy })
                 })
             }
