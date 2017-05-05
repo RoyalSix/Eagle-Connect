@@ -60,7 +60,6 @@ var css = {
     },
     chapelContainer: {
         flex: 1,
-        marginTop: 20
     },
     chapelSeparator: {
         flex: 1,

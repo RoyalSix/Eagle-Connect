@@ -44,9 +44,6 @@ export default class NewsContainer extends Component {
             </TouchableOpacity>
         )
     }
-    renderHeader() {
-        return <Text style={style.chapelHeading}>NEWS</Text>;
-    }
     renderSeparator(sectionId, rowId) {
         return <View key={rowId} style={style.chapelSeparator} />;
     }
@@ -66,7 +63,6 @@ export default class NewsContainer extends Component {
                     dataSource={this.props.dataSource}
                     renderRow={this.renderRow}
                     renderSeparator={this.renderSeparator}
-                    renderHeader={this.renderHeader}
                 />
             </View>
         )
