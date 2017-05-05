@@ -15,7 +15,6 @@ export default class HomeContainer extends Component {
         return (
             <KeyboardAvoidingView behavior={'position'} style={{flex:1}}>
                 <ScrollView contentContainerStyle={{minHeight:height, marginTop:20}} >
-                <Text style={{ color: 'white', fontSize: 35, textAlign: 'center', marginTop: -10 }}>Home</Text>
                 <View style={{ borderWidth: 1, borderColor: 'white', height: 182, marginHorizontal: 15 }} >
                     <Image resizeMode={'contain'} style={{ height: 180, alignSelf: 'center', }} source={biola_picture} />
                 </View>

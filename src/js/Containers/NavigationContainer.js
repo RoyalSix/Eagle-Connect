@@ -71,7 +71,7 @@ class NavigationContainer extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: 'black', }}>
-                <View style={{ top:0, left:0, flexDirection: 'row', justifyContent: 'space-between', position:'absolute', zIndex:2, backgroundColor:'rgba(0,0,0,0)' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor:'rgba(0,0,0,0)' }}>
                     <Text style={{ color: 'grey', fontSize: 17, margin: 10, flex:1 }}>{this.props.day}</Text>
                     <Text style={{ color: 'grey', fontSize: 17, margin: 10 }}>{this.props.time}</Text>
                 </View>
