@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
+ // FacebookSdk.sdkInitialize(this.getApplicationContext());
 
   private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
