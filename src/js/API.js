@@ -41,7 +41,7 @@ export function getHTMLFromURL(url, callback) {
 export function getTime() {
     var timeOfDay = "AM";
     function pad(n) {
-        return (n < 10) ? '0' + n : n;
+        return n;
     }
 
     var time = new Date();

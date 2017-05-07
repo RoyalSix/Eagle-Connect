@@ -9,6 +9,7 @@ import {
     ListView,
     TouchableHighlight
 } from 'react-native';
+const timer = require('react-native-timer');
 
 import { connect } from 'react-redux'
 import ChapelContainer from './ChapelContainer';
@@ -37,9 +38,9 @@ class NavigationContainer extends Component {
     componentWillMount() {
         this.props.setTime();
         this.props.setDay();
-        window.setTimeout(() => {
+        timer.setInterval('clockTimer', () => {
             this.props.setTime();
-        }, 60000)
+        }, 50000)
     }
 
     renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
