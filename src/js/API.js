@@ -1,4 +1,4 @@
-import {Alert} from 'react-native';
+import { Alert } from 'react-native';
 import daysOfWeek from './daysOfWeek';
 import chapelPictures from './chapelPictures';
 import firebase from './modules/firebase';
@@ -41,7 +41,7 @@ export function getHTMLFromURL(url, callback) {
 export function getTime() {
     var timeOfDay = "AM";
     function pad(n) {
-        return (n < 10) ? '0' + n : n;
+        return n;
     }
 
     var time = new Date();
@@ -169,46 +169,46 @@ export function getNextWeek(now) {
     return end_of_next_week;
 }
 
-export function postMessage(message, username, callback, testMode=false) {
-        fetch(`http://www.purgomalum.com/service/xml?text=${message}`).then((response) => response.text()).then((htmlString) => {
-            let filteredText = htmlString.match(/<result>(.*)<\/result>/)[1];
-            if (!message.match(badWordRegex) && message == filteredText) {
-                database.ref(`boardMessages/`).push({
-                    message,
-                    username,
-                    time: Date()
-                }).then((snapshot) => {
-                    return callback(snapshot.key)
-                }).catch((err) => { console.log(err) });
-            } else if (!testMode) {
-                Alert.alert(
-                    'Oops! You used a rude or inappropriate word.',
-                    'If you use another you may be banned.',
-                    [
-                        { text: 'Ok' },
-                    ],
-                    { cancelable: false }
-                )
-            }
-            callback();
-        });
+export function postMessage(message, username, callback, testMode = false) {
+    fetch(`http://www.purgomalum.com/service/xml?text=${message}`).then((response) => response.text()).then((htmlString) => {
+        let filteredText = htmlString.match(/<result>(.*)<\/result>/)[1];
+        if (!message.match(badWordRegex) && message == filteredText) {
+            database.ref(`boardMessages/`).push({
+                message,
+                username,
+                time: Date()
+            }).then((snapshot) => {
+                return callback(snapshot.key)
+            }).catch((err) => { console.log(err) });
+        } else if (!testMode) {
+            Alert.alert(
+                'Oops! You used a rude or inappropriate word.',
+                'If you use another you may be banned.',
+                [
+                    { text: 'Ok' },
+                ],
+                { cancelable: false }
+            )
+        }
+        callback();
+    });
 
-    }
+}
 
 
-    export function getBoardMessages(callback) {
-        database.ref('boardMessages').on('value', (snapshot) => {
-            const data = snapshot.val();
-            var updatedData = {};
-            for (var messageKey in data) {
-                var messageObj = data[messageKey];
-                if (new Date() - new Date(messageObj.time) > TWELVE_HOURS) {
-                    database.ref(`boardMessages/${messageKey}`).remove();
-                } else updatedData[messageKey] = messageObj;
-            }
-            if (updatedData) callback(updatedData);
-        })
-    }
+export function getBoardMessages(callback) {
+    database.ref('boardMessages').on('value', (snapshot) => {
+        const data = snapshot.val();
+        var updatedData = {};
+        for (var messageKey in data) {
+            var messageObj = data[messageKey];
+            if (new Date() - new Date(messageObj.time) > TWELVE_HOURS) {
+                database.ref(`boardMessages/${messageKey}`).remove();
+            } else updatedData[messageKey] = messageObj;
+        }
+        if (updatedData) callback(updatedData);
+    })
+}
 
 export function getTomorrowDay() {
     const tomorrow = new Date().getDay() + 1 > 7 ? Math.abs((new Date().getDay() + 1) - 7) : new Date().getDay() + 1
@@ -247,9 +247,9 @@ export function getTimeOfDay() {
     }
 }
 
-// export function getHomeScreen() {
-//     database.ref('./homeView').on('value', (snapshot) => {
-//         const data = snapshot.val();
-//         debugger;
-//     });
-// }
+export function getMessageBoardVisibility(callback) {
+    database.ref('showMessageBoard').on('value', (snapshot) => {
+        const data = snapshot.val();
+        callback(data);
+    })
+}

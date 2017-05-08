@@ -24,3 +24,14 @@ export function getBoardMessages() {
         })
     }
 }
+
+export function getMessageBoardVisibility() {
+    return ((dispatch) => {
+        API.getMessageBoardVisibility((visibility) => {
+             dispatch({
+                type: types.GET_BOARD_VISIBILITY,
+                visibility
+            })
+        })
+    })
+}

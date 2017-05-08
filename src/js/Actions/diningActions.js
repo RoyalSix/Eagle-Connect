@@ -56,46 +56,55 @@ export function getArrayOfDiningFromNodeList(nodeList) {
             var FoodLocation = "";
             var Day = "";
             try {
-
                 if (nodeList[i].div[j]) {
                     if (nodeList[i].div[j].class.includes('no-item')) continue;
                     if (nodeList[i].div[j].div instanceof Array) {
-                        var cafeItems = nodeList[i].div[j].div;
-                        for (var x = 0; x < cafeItems.length; x++) {
+                        for (var cafeItems of nodeList[i].div[j].div) {
+                            FoodName = "";
+                            FoodDescription = "";
+                            FoodTime = "";
+                            FoodLocation = "";
+                            Day = "";
                             //This loop runs through each menu item in row if Array.
                             FoodLocation = nodeList[i].div["0"].span.content;
                             FoodLocation = FoodLocation.replace("MTO", "Made To Order");
-                            FoodName = cafeItems[x].div["0"].strong.span.content;
+                            FoodName = cafeItems.div["0"].strong.span.content;
                             FoodName = FoodName.replace("MTO", "Made To Order");
-                            FoodTime = cafeItems[x].div["0"].span[1] ? cafeItems[x].div["0"].span[1].span.strong : cafeItems[x].div["0"].span.span.strong;
+                            FoodTime = cafeItems.span ? cafeItems.span[1].span.strong : cafeItems.div["0"].span[1] ? cafeItems.div["0"].span[1].span.strong : cafeItems.div["0"].span.span.strong;
                             FoodTime = DiningTimeAbbreviation[FoodTime];
                             Day = daysOfWeek[nodeList[0].div[j].content];
-                            FoodDescription = cafeItems[x].div["0"].span["0"] ? cafeItems[x].div["0"].span["0"].content : "";
+                            FoodDescription = cafeItems.div["0"].span["0"] ? cafeItems.div["0"].span["0"].content : "";
+                            var foodElement = { FoodName, FoodDescription, FoodTime, FoodLocation, Day };
+                            if (FoodTime.includes("Breakfast") && diningListBreakfast.indexOf(foodElement) == -1) diningListBreakfast.push(foodElement);
+                            else if (FoodTime.includes("Lunch") && diningListLunch.indexOf(foodElement) == -1) diningListLunch.push(foodElement);
+                            else if (FoodTime.includes("Dinner") && diningListDinner.indexOf(foodElement) == -1) diningListDinner.push(foodElement);
                         }
                     }
                     else if (nodeList[i].div[j].div.div instanceof Array) {
                         var cafeItems = nodeList[i].div[j].div.div;
-                        for (var x = 0; x < cafeItems.length; x++) {
-                            FoodLocation = nodeList[i].div["0"].span.content;
-                            FoodLocation = FoodLocation.replace("MTO", "Made To Order");
-                            FoodName = cafeItems[0].strong.span.content
-                            FoodName = FoodName.replace("MTO", "Made To Order");
-                            FoodTime = cafeItems[0].span[1] ? cafeItems[0].span[1].span.strong : cafeItems[0].span.span.strong
-                            FoodTime = DiningTimeAbbreviation[FoodTime];
-                            Day = daysOfWeek[nodeList[0].div[j].content];
-                            FoodDescription = cafeItems[0].span[0] ? cafeItems[0].span[0].content : "";
-                        }
+                        FoodLocation = nodeList[i].div["0"].span.content;
+                        FoodLocation = FoodLocation.replace("MTO", "Made To Order");
+                        FoodName = cafeItems[0].strong.span.content
+                        FoodName = FoodName.replace("MTO", "Made To Order");
+                        FoodTime = cafeItems[0].span[1] ? cafeItems[0].span[1].span.strong : cafeItems[0].span.span.strong
+                        FoodTime = DiningTimeAbbreviation[FoodTime];
+                        Day = daysOfWeek[nodeList[0].div[j].content];
+                        FoodDescription = cafeItems[0].span[0] ? cafeItems[0].span[0].content : "";
+                        var foodElement = { FoodName, FoodDescription, FoodTime, FoodLocation, Day };
+                        if (FoodTime.includes("Breakfast") && diningListBreakfast.indexOf(foodElement) == -1) diningListBreakfast.push(foodElement);
+                        if (FoodTime.includes("Lunch") && diningListLunch.indexOf(foodElement) == -1) diningListLunch.push(foodElement);
+                        if (FoodTime.includes("Dinner") && diningListDinner.indexOf(foodElement) == -1) diningListDinner.push(foodElement);
                     }
                 }
 
             }
             catch (e) {
+                debugger;
+                console.warn(e)
             }
-            if (FoodTime == "Breakfast") diningListBreakfast.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
-            if (FoodTime == "Lunch") diningListLunch.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
-            if (FoodTime == "Dinner") diningListDinner.push({ FoodName, FoodDescription, FoodTime, FoodLocation, Day });
         }
     }
+    console.log(diningListBreakfast, diningListLunch, diningListDinner)
     return [...diningListBreakfast, ...diningListLunch, ...diningListDinner];
 }
 

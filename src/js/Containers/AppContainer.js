@@ -33,6 +33,7 @@ export default class App extends Component {
         store.dispatch(dinigActions.startDiningLoad());
         store.dispatch(newsActions.startNewsLoad());
         store.dispatch(boardActions.getBoardMessages());
+        store.dispatch(boardActions.getMessageBoardVisibility());
         StatusBar.setHidden(true, 'none');
     }
     render() {
