@@ -29,7 +29,7 @@ export default class ChapelContainer extends Component {
             <View style={{ padding: 10, backgroundColor: 'white', flexDirection: 'row' }}>
                 <Image style={{ height: 80, width: 80, borderRadius: 40 }} source={assets[data.picture]} />
                 <View style={{ justifyContent: 'center', marginHorizontal: 10 }}>
-                    <Text style={{ fontSize: 22, color: 'black', }}>{data.location}</Text>
+                    <Text style={{ fontSize: 22, color: 'black',  width:250, fontFamily:'Arial', fontWeight:'bold' }}>{data.location.toUpperCase()}</Text>
                     <View style={{ flexDirection: 'column', justifyContent: 'space-between', margin: 5 }}>
                         <Text style={{ fontSize: 15, color: 'black' }}>Time: {date}</Text>
                         {data.speaker ? <Text numberOfLines={this.state.numberOfLines}  style={{ fontSize: 15, color: 'black', width: 200 }}>Speaker: {data.speaker}</Text> : null}
