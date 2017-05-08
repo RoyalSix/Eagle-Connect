@@ -14,6 +14,10 @@ export default class ChapelContainer extends Component {
         super(props);
         this.renderSectionHeader = this.renderSectionHeader.bind(this);
         this.onLayout = this.onLayout.bind(this);
+        this.renderRow = this.renderRow.bind(this)
+        this.state = {
+            numberOfLines:1
+        }
     }
     renderRow(data) {
         var date;
@@ -28,8 +32,8 @@ export default class ChapelContainer extends Component {
                     <Text style={{ fontSize: 22, color: 'black', }}>{data.location}</Text>
                     <View style={{ flexDirection: 'column', justifyContent: 'space-between', margin: 5 }}>
                         <Text style={{ fontSize: 15, color: 'black' }}>Time: {date}</Text>
-                        {data.speaker ? <Text style={{ fontSize: 15, color: 'black', width: 200 }}>Speaker: {data.speaker}</Text> : null}
-                        <Text style={{ width:200, fontSize: 15, color: 'black' }}>{data.title}</Text>
+                        {data.speaker ? <Text numberOfLines={this.state.numberOfLines}  style={{ fontSize: 15, color: 'black', width: 200 }}>Speaker: {data.speaker}</Text> : null}
+                        <Text numberOfLines={this.state.numberOfLines} style={{ width:200, fontSize: 15, color: 'black' }}>{data.title}</Text>
                     </View>
                 </View>
             </View>
