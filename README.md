@@ -8,7 +8,6 @@
     - XCode: https://itunes.apple.com/us/app/xcode/id497799835?mt=12
 - `git clone https://github.com/RoyalSix/Eagle-Connect.git && cd ./Eagle-Connect`
 - `sudo npm run new-ios`
-- 
 ### Tests
 - Test code is located in ./src/js/tests
 - Right now while in development phase we are testing the API functions on every initialization of the software.
