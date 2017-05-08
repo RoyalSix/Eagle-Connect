@@ -14,10 +14,10 @@ class BoardContainer extends Component {
         for (var message in messagesObj) {
             var time = API.getTimeFromDateObject(new Date(messagesObj[message].time));
             messageArray.push(
-                <View key={`${time}_${message}`} style={{ borderColor: 'white', borderBottomWidth: .2, justifyContent:'center'  }}>
-                    <Text style={{marginHorizontal:5, color:'#E0E0E0', textAlign:'left', marginTop:5}}>{messagesObj[message].username}</Text>
+                <View key={`${time}_${message}`} style={{ borderColor: 'white', borderBottomWidth: .2, justifyContent: 'center' }}>
+                    <Text style={{ marginHorizontal: 5, color: '#E0E0E0', textAlign: 'left', marginTop: 5 }}>{messagesObj[message].username}</Text>
                     <View style={{ flexDirection: 'row', }}>
-                        <Text numberOfLines={3} style={{ color: 'grey', marginHorizontal:5, marginBottom: 5, flex: 1 }}>{messagesObj[message].message}</Text>
+                        <Text numberOfLines={3} style={{ color: 'grey', marginHorizontal: 5, marginBottom: 5, flex: 1 }}>{messagesObj[message].message}</Text>
                         <Text style={{ fontSize: 12, color: 'grey', margin: 5 }}>{time}</Text>
                     </View>
                 </View>
@@ -29,7 +29,10 @@ class BoardContainer extends Component {
     render() {
         const boardMessages = this.getBoardMessageViews(this.props.messages)
         return (
-            <Board boardMessages={boardMessages} {...this.props} />
+            <View>
+                {this.props.boardVisibility ? <Board boardMessages={boardMessages} {...this.props} /> : null}
+            </View>
+
         )
     }
 }

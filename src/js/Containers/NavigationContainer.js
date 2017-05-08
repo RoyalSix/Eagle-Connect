@@ -27,7 +27,7 @@ import HomeTab from '../Components/TabBar/HomeTab';
 
 import * as navigationActions from '../Actions/navigationActions'
 
-const home_icon = require('assets').home_icon;
+import { home_icon } from 'assets';
 
 class NavigationContainer extends Component {
     constructor(props) {
