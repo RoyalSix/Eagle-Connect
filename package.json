@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "new-ios": "npm install -g react-native-cli && git checkout master && git pull && sudo npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && chmod -R 777 ./ && cd ios && pod install && cd ../ && react-native run-ios"
+    "new-ios": "npm install -g react-native-cli && git checkout master && git pull && npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && sudo react-native link && sudo chmod -R 777 ./ && cd ios && pod install && cd ../ && sudo react-native run-ios"
   },
   "dependencies": {
     "@google-cloud/debug-agent": "^1.0.0",
