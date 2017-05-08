@@ -1,5 +1,5 @@
 # Eagle Connect
-  - http://github.com/RoyalSix/Eagle-Connect
+  - Source Code: http://github.com/RoyalSix/Eagle-Connect
   - Everything you need to know about Biola while on campus, all in one place!
 
 ### Installation
