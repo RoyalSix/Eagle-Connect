@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "new-ios": "git checkout master && git pull && sudo npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && react-native run-ios",
     "new-win": "git checkout master && git pull && sudo npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && react-native run-ios"
   },
   "dependencies": {

@@ -1,0 +1,18 @@
+https://developer.android.com/studio/install.html
+Android 6.0
+- Google APIs
+- Android SDK Platform 23
+- Intel x86 Atom_64 System Image
+- Google APIs Intel x86 Atom_64 System Image
+SDK Tools
+- SDK Build Tools
+    - 23.0.1
+https://nodejs.org/en/download/
+https://git-scm.com/download/win
+git clone http://github.com/RoyalSix/Eagle-Connect.git
+npm install react-native-cli -g
+npm install
+choco install python2 -y
+choco install jdk8 -y
+setx -m ANDROID_HOME %homepath%/AppData/Local/Android/sdk
+setx -m PATH "%PATH%;%ANDROID_HOME%\bin";
