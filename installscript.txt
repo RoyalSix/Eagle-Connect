@@ -16,3 +16,7 @@ choco install python2 -y
 choco install jdk8 -y
 setx -m ANDROID_HOME %homepath%/AppData/Local/Android/sdk
 setx -m PATH "%PATH%;%ANDROID_HOME%\bin";
+setx -m PATH "%PATH%;%homepath%\AppData\Local\Android\sdk\tools";
+android -s create avd -n Eagle-Connect -k system-images;android-23;default;x86_64
+cd %homepath%/Desktop/Eagle-Connect/android/haxm && silent_install
+emulator -avd Eagle-Connect
