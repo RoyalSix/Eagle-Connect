@@ -11,19 +11,25 @@ export default class DiningContainer extends Component {
         super(props);
         this.renderSectionHeader = this.renderSectionHeader.bind(this);
         this.onLayout = this.onLayout.bind(this);
+        this.renderRow = this.renderRow.bind(this);
+        this.state = {
+            rows:{}
+        }
     }
     renderRow(data) {
         //FoodName, FoodDescription, FoodTime, FoodLocation, Day
         function titleCase(phrase) {
             return phrase.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         }
+        const foodName = data.FoodName.toUpperCase();
+        const numberOfLines = this.state.rows[foodName] || 1;
         return (
             <View style={{ padding: 10, backgroundColor: 'white', flexDirection: 'row' }}>
                 <View style={{ justifyContent: 'center', marginHorizontal: 10 }}>
-                    <Text style={{ fontSize: 22, color: 'black',  width:250, fontFamily:'Arial', fontWeight:'bold'}}>{data.FoodName.toUpperCase()}</Text>
+                    <Text style={{ fontSize: 22, color: 'black',  width:300, fontFamily:'Arial', fontWeight:'bold'}}>{foodName}</Text>
                     <View style={{ flexDirection: 'column', justifyContent: 'space-between', margin: 5 }}>
                         <Text style={{ fontSize: 15, color: 'black' }}>Location: {titleCase(data.FoodLocation)}</Text>
-                        {data.FoodDescription ? <Text numberOfLines={1} style={{ fontSize: 15, color: 'black', }}>Description: {data.FoodDescription}</Text> : null}
+                        {data.FoodDescription ? <Text numberOfLines={numberOfLines} style={{ fontSize: 15, color: 'black', }}>Description: {data.FoodDescription}</Text> : null}
                     </View>
                 </View>
             </View>

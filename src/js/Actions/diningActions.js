@@ -28,7 +28,7 @@ export function receiveDiningItems(dining) {
 export function getDiningItems(callback) {
     getHTMLFromURL('https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fcafebiola.cafebonappetit.com/cafe/cafe-biola/147727%2F%22&format=json', (result) => {
         var htmlObj = JSON.parse(result);
-        var weekMenuURL = htmlObj.query.results.body.div[2].div.div.div.div.section[2].article.div.div["0"].p.span.a.href;
+        var weekMenuURL = htmlObj.query.results.body.div[2].div.div.div.div.section[2].article.div.div["0"].span.a.href;
         weekMenuURL = weekMenuURL.split('http://')[1];
         getHTMLFromURL(`https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2F${weekMenuURL}%2F%22&format=json`, function (data) {
             var DiningDoc = JSON.parse(data);
