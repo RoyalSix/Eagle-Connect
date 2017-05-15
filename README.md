@@ -5,7 +5,6 @@
 ### Installation
 - Development System Requirements (MAC):
     - Node JS: https://nodejs.org/en/download/
-    - Git: https://git-scm.com/downloads
     - XCode: https://itunes.apple.com/us/app/xcode/id497799835?mt=12
 - `git clone https://github.com/RoyalSix/Eagle-Connect.git && cd ./Eagle-Connect && npm run new-ios`
 
