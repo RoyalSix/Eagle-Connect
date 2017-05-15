@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "new-ios": "sudo gem install cocoapods && sudo npm install -g react-native-cli && npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && cd ios && pod install && cd ../ && react-native run-ios"
+    "new-ios": "sudo gem install cocoapods && sudo npm install -g react-native-cli && npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && cd ios && pod install && cd ../ && react-native run-ios && echo "\n\nIOS SIMULATOR IS NOW RUNNING.\nYOU MAY NEED TO PRESS RELAOD (CMD + R) IF THE APP IS AT A RED SCREEN.""
   },
   "dependencies": {
     "@google-cloud/debug-agent": "^1.0.0",
