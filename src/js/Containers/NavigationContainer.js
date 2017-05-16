@@ -49,19 +49,14 @@ class NavigationContainer extends Component {
                 return <ChapelTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
             case 'EVENTS':
                 return <EventsTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
-                break;
             case 'DINING':
                 return <DiningTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
-                break;
             case 'EVENTS':
                 return <CampusTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
-                break;
             case 'NEWS':
                 return <CampusTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
-                break;
             case 'HOME':
                 return <HomeTab key={`${name}_${page}`} onPressHandler={onPressHandler} onLayoutHandler={onLayoutHandler} page={page} name={name} />;
-                break;
         }
     }
 
