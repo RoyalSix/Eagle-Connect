@@ -2,13 +2,25 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import {
     View,
-    Text
+    Text,
+    Keyboard,
+    Alert
 } from 'react-native';
 import *  as boardActions from '../Actions/boardActions';
 import Board from '../Components/Board';
 import * as API from '../API'
+import * as homeActions from '../Actions/homeActions';
 
 class BoardContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
+
+    }
+    componentWillMount() {
+        this.props.silentLogin();
+    }
+
     getBoardMessageViews(messagesObj) {
         var messageArray = [];
         for (var message in messagesObj) {
@@ -26,11 +38,26 @@ class BoardContainer extends Component {
         return messageArray;
     }
 
+    checkIfLoggedIn() {
+        if (!this.props.loggedIn || !this.props.username) {
+            Keyboard.dismiss();
+            Alert.alert(
+                'Not so fast...',
+                'You must sign into Facebook to post on the board.',
+                [
+                    { text: 'Cancel', style: 'cancel' },
+                    { text: 'Login', onPress: () => this.props.login() },
+                ],
+                { cancelable: false }
+            )
+        };
+    }
+
     render() {
         const boardMessages = this.getBoardMessageViews(this.props.messages)
         return (
             <View>
-                {this.props.boardVisibility ? <Board boardMessages={boardMessages} {...this.props} /> : null}
+                {this.props.boardVisibility ? <Board checkIfLoggedIn={this.checkIfLoggedIn} boardMessages={boardMessages} {...this.props} /> : null}
             </View>
 
         )
@@ -44,7 +71,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToState = (dispatch, ownProps) => {
     return {
         postOnBoard: (message, username) => {
-            dispatch(boardActions.postMesssageToBoad(message, username))
+            dispatch(boardActions.postMesssageToBoad(message, username));
+        },
+        login: () => {
+            dispatch(homeActions.loginFB());
+        },
+        silentLogin: () => {
+            dispatch(homeActions.silentLogin());
         }
     }
 }

@@ -26,7 +26,7 @@ export default class DiningContainer extends Component {
         return (
             <View style={{ padding: 10, backgroundColor: 'white', flexDirection: 'row' }}>
                 <View style={{ justifyContent: 'center', marginHorizontal: 10 }}>
-                    <Text style={{ fontSize: 22, color: 'black',  width:300, fontFamily:'Arial', fontWeight:'bold'}}>{foodName}</Text>
+                    <Text style={{ fontSize: 20, color: 'black',  width:300, fontFamily:'Arial', fontWeight:'bold'}}>{foodName}</Text>
                     <View style={{ flexDirection: 'column', justifyContent: 'space-between', margin: 5 }}>
                         <Text style={{ fontSize: 15, color: 'black' }}>Location: {titleCase(data.FoodLocation)}</Text>
                         {data.FoodDescription ? <Text numberOfLines={numberOfLines} style={{ fontSize: 15, color: 'black', }}>Description: {data.FoodDescription}</Text> : null}

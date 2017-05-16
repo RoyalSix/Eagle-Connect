@@ -27,7 +27,8 @@ export default class Board extends Component {
                     </ScrollView>
                     <View style={{ backgroundColor: 'white', flexDirection: 'row', alignItems: 'center', }}>
                         <View style={{ borderColor: 'black', flex: 1, height: 30, borderWidth: 1, margin: 2 }}>
-                            <TextInput onSubmitEditing={()=>{
+                            <TextInput onFocus={this.props.checkIfLoggedIn}
+                            onSubmitEditing={()=>{
                             this.props.postOnBoard(this.state.messageValue, this.props.username)
                             this.setState({messageValue:null})
                             }} returnKeyType={'send'} blurOnSubmit={true} value={this.state.messageValue} onChangeText={(textInput)=>this.setState({messageValue:textInput})} style={{ marginLeft: 2, flex: 1, marginRight: 5 }} />

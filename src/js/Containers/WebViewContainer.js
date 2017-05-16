@@ -51,7 +51,13 @@ ${script}
 </script>
 `;
 
-const codeInject = (html) => html.replace(BODY_TAG_PATTERN, style + "</body>");
+const codeInject = (html) => {
+    html = html.replace(/(\r\n|\n|\r)/gm,"");
+    var content = html.match(/(<div class="article">.*<\/div>(\s+))<div class="rightCol">/gm)[0];
+    content = content.replace('<div class="rightCol">', "");
+    html = html.replace(/<div id="wrapperBiolaHeader.*<\/div>/, content);
+    return html.replace(BODY_TAG_PATTERN, style + "</body>");
+}
 
 
 /**
@@ -107,7 +113,7 @@ var WebViewAutoHeight = React.createClass({
                 <WebView
                     source={{html: codeInject(html)}}
                     scrollEnabled={true}
-                    style={[style, {height: Math.max(this.state.realContentHeight, minHeight)}]}
+                    style={[style, {height: Math.max(this.state.realContentHeight, minHeight), marginHorizontal:20}]}
                     javaScriptEnabled
                     onNavigationStateChange={this.handleNavigationChange}
                 />

@@ -8,11 +8,6 @@ import Home from '../Components/Home';
 import * as homeActions from '../Actions/homeActions';
 
 class HomeContainer extends Component {
-    componentWillMount() {
-        if (!this.props.loggedIn) {
-            this.props.login();
-        }
-    }
     render() {
         return (
             <Home {...this.props} />
@@ -25,16 +20,4 @@ const mapStateToProps = (state) => {
         ...state.homeReducer
     }
 }
-
-const mapDispatchToState = (dispatch, ownProps) => {
-    return {
-        getFBUsername: () => {
-            dispatch(homeActions.getFBUsername());
-        },
-        login: () =>{
-            dispatch(homeActions.loginFB())
-        }
-     }
-}
-
-export default connect(mapStateToProps, mapDispatchToState)(HomeContainer)
+export default connect(mapStateToProps)(HomeContainer)

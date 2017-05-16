@@ -46,3 +46,13 @@ export function loginFB() {
         )
     }
 }
+
+export function silentLogin() {
+    return (dispatch) => {
+        AccessToken.getCurrentAccessToken().then(
+            (data) => {
+                if (data && data.accessToken) dispatch(getFBUsername())
+            }
+        )
+    }
+}

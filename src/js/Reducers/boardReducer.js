@@ -2,7 +2,6 @@ import * as types from '../Actions/actionTypes';
 
 export function boardReducer(state = {
     messages: {},
-    userName: null,
     boardVisibility: false
 }, action) {
     switch (action.type) {
@@ -16,7 +15,6 @@ export function boardReducer(state = {
             }
         default:
             return state;
-            break;
     }
 }
 

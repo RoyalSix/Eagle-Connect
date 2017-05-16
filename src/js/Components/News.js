@@ -53,8 +53,8 @@ export default class NewsContainer extends Component {
                 <Modal animationType={"slide"} transparent={false} visible={this.state.modalVisible} onRequestClose={() => { }}>
                     <TouchableOpacity onPress={()=>this.setState({modalVisible:false})}
                     style={{flexDirection: 'row', justifyContent:'flex-start', margin:5, alignItems:'center'}}>
-                        <Image resizeMode={'contain'} source={back_button} style={{height: 22, width: 22}} />
-                        <Text style={{fontSize:17}}>Back</Text>
+                        <Image resizeMode={'contain'} source={back_button} style={{height: 18, width: 18}} />
+                        <Text style={{fontSize:15}}>Back</Text>
                     </TouchableOpacity>
                     {this.state.article}
                 </Modal>
