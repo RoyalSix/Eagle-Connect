@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,49 +16,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by React Native" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="626" width="335" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EagleConnect" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="202" width="335" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 10" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-Gf-Vd8">
-                    <rect key="frame" x="-10" y="-10" width="397" height="686"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eagle(white) 2" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-Y4-ljk">
-                    <rect key="frame" x="95" y="242" width="185" height="183"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="3f5-Y4-ljk" secondAttribute="height" multiplier="185:183" id="nqV-gO-Sik"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="cmQ-4Q-Rik">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3f5-Y4-ljk" firstAttribute="centerX" secondItem="eQV-Gf-Vd8" secondAttribute="centerX" constant="-1" id="0cs-fr-KR4"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstItem="eQV-Gf-Vd8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" constant="22" id="BjQ-dy-phR"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="eQV-Gf-Vd8" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" constant="19" id="bwv-PG-aqM"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
-                <constraint firstItem="3f5-Y4-ljk" firstAttribute="centerY" secondItem="eQV-Gf-Vd8" secondAttribute="centerY" id="jYB-Lw-ia8"/>
-                <constraint firstItem="eQV-Gf-Vd8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="1" id="k0M-Yr-S1G"/>
-                <constraint firstItem="eQV-Gf-Vd8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lVP-6P-1hi"/>
+                <constraint firstAttribute="bottom" secondItem="cmQ-4Q-Rik" secondAttribute="bottom" id="6sm-Ud-YGw"/>
+                <constraint firstAttribute="trailing" secondItem="cmQ-4Q-Rik" secondAttribute="trailing" id="CbG-hZ-ulL"/>
+                <constraint firstItem="cmQ-4Q-Rik" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ISa-X9-AWA"/>
+                <constraint firstItem="cmQ-4Q-Rik" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K7c-fD-QIl"/>
+                <constraint firstItem="cmQ-4Q-Rik" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Srn-sG-shx"/>
+                <constraint firstItem="cmQ-4Q-Rik" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="375:667" id="TmY-At-TNj"/>
+                <constraint firstItem="cmQ-4Q-Rik" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g7B-Dk-Gi9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="547.5" y="454.5"/>
         </view>
     </objects>
     <resources>
-        <image name="Rectangle 10" width="375" height="667"/>
-        <image name="eagle(white) 2" width="185" height="183"/>
+        <image name="launch_screen" width="382" height="668"/>
     </resources>
 </document>
