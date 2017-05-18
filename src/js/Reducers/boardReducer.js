@@ -7,10 +7,12 @@ export function boardReducer(state = {
     switch (action.type) {
         case types.GET_BOARD_MESSAGES:
             return {
+                ...state,
                 messages: action.messages
             }
         case types.GET_BOARD_VISIBILITY:
             return {
+                ...state,
                 boardVisibility: action.visibility
             }
         default:

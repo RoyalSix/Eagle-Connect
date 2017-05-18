@@ -6,7 +6,9 @@ const TWELVE_HOURS = 4.32e+7
 
 export function postMesssageToBoad(message, username) {
     return (dispatch) => {
+        debugger;
         API.postMessage(message, username, (snapshotKey) => {
+            debugger;
             if (snapshotKey) setTimeout(() => {
                 database.ref(`boardMessages/${snapshotKey}`).remove();
             }, TWELVE_HOURS)
