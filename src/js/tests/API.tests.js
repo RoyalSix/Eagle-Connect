@@ -61,7 +61,7 @@ export default function () {
         console.log('Testing', 'API.getTime()', 'and API.getTimeFromDateObject()')
         var currentTime = API.getTime();
         currentTime.split(" ")[1] == "AM" || currentTime.split(" ")[1] == "PM";
-        assert(API.getTime() == API.getTimeFromDateObject(new Date()));
+        assert(API.getTime() == API.getTimeFromDateObject(new Date()), "API.getTime() != API.getTimeFromDateObject(new Date())");
         daysOfWeek.should.matchAny(API.getDay());
         console.log('Success ✓')
 

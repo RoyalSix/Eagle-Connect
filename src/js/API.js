@@ -76,7 +76,7 @@ export function getTimeFromDateObject(time) {
         hours = 12;
     }
 
-    var todisplay = pad(hours) + ':' + pad(minutes) + " " + timeOfDay;
+    var todisplay = hours + ':' + pad(minutes) + " " + timeOfDay;
     return todisplay
 }
 
@@ -106,7 +106,6 @@ export function convertArrayToMapDining(dataArray, day) {
         }
     });
     return diningCategoryMap;
-
 }
 
 export function convertArrayToMapChapels(dataArray) {
