@@ -66,28 +66,35 @@ export function getArrayOfEventsFromNodeList(nodeList) {
         var title = "";
         var speaker = "";
 
-        //Variable to check <a> tags for titles
-        var check = "";
+        try {
+            //Use text content to make date
+            date = eventListItems[1].textContent;
+
+        } catch (e) {
+
+        }
+
 
         try {
-            //Use text content to make title, speaker, date, and time
-            date = eventListItems[1].textContent;
+            //Use text content to make time
             time = eventListItems[2].textContent;
 
-            // check = eventTitleItems[0].textContent;
-            
-            // //If the first <a> tag is NOT null, make that the title
-            // if (check == "")
-            // {
-            //     title = eventTitleItems[1].textContent;
-            // }
+        } catch (e) {
 
-            // else
-            // {
-            //     title = eventTitleItems[0].textContent;
-            // }
+        }
 
+
+         try {
+            //Use text content to make title
             title = eventTitleItems[0].textContent;
+
+        } catch (e) {
+
+        }
+
+
+         try {
+            //Use text content to make speaker
             speaker = eventSubtitleItems[0].textContent;
 
         } catch (e) {
