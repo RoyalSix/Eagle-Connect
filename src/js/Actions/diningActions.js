@@ -100,8 +100,6 @@ export function getArrayOfDiningFromNodeList(nodeList) {
 
             }
             catch (e) {
-                debugger;
-                console.warn(e)
             }
         }
     }
