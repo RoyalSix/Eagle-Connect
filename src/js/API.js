@@ -95,16 +95,17 @@ export function convertArrayToMapDining(dataArray, day) {
                 if (foodTime.split(' and ')) {
                     for (var foodTimeSplit of foodTime.split(' and ')) {
                         if (!diningCategoryMap[foodTimeSplit]) diningCategoryMap[foodTimeSplit] = [];
-                        diningCategoryMap[foodTimeSplit].push(diningItem);
+                        if (!diningCategoryMap[foodTimeSplit].includes(diningItem)) diningCategoryMap[foodTimeSplit].push(diningItem);
                     }
                 } else {
                     if (!diningCategoryMap[foodTime]) diningCategoryMap[foodTime] = [];
-                    diningCategoryMap[foodTime].push(diningItem);
+                     if (!diningCategoryMap[foodTime].includes(diningItem)) diningCategoryMap[foodTime].push(diningItem);
                 }
             }
         } catch (e) {
         }
     });
+    debugger;
     return diningCategoryMap;
 }
 
