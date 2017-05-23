@@ -64,7 +64,7 @@ export default class DiningContainer extends Component {
                     _this.refs.listView.scrollTo({ y: fy })
                 })
             }
-        }, 100)
+        }, 200)
     }
 
     render() {

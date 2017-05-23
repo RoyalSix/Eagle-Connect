@@ -1,6 +1,7 @@
 import should from 'should';
 import * as API from '../API'
 import daysOfWeek from '../daysOfWeek';
+import base64 from 'base-64';
 
 function assert(condition, message) {
     if (!condition) {
@@ -44,6 +45,7 @@ export default function () {
             title: "Talbot Chapel"
         }
     ]
+    
     const BAD_WORD = base64.decode("RnVjaw==");
     try {
         API.getJSONFromURL("stackoverflow.com", (resultObj) => {

@@ -105,7 +105,6 @@ export function convertArrayToMapDining(dataArray, day) {
         } catch (e) {
         }
     });
-    debugger;
     return diningCategoryMap;
 }
 
