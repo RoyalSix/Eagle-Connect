@@ -10,6 +10,7 @@
   "dependencies": {
     "@google-cloud/debug-agent": "^1.0.0",
     "badwords-list": "^1.0.0",
+    "base-64": "^0.1.0",
     "cheerio": "^0.22.0",
     "firebase": "^3.9.0",
     "react": "15.4.2",

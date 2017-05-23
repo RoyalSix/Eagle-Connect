@@ -44,7 +44,7 @@ export default function () {
             title: "Talbot Chapel"
         }
     ]
-    const BAD_WORD = atob("ZnVjaw==");
+    const BAD_WORD = base64.decode("RnVjaw==");
     try {
         API.getJSONFromURL("stackoverflow.com", (resultObj) => {
             console.log('Testing', 'API.getJSONFromURL("stackoverflow.com")')

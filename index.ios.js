@@ -13,6 +13,8 @@ const Dimensions = React.Dimensions || require('Dimensions')
     , { width, height } = Dimensions.get('window');
 const vw = width / 100, vh = height / 100;
 import mainTests from './src/js/tests/main.js';
+import base64 from 'base-64';
+window.base64 = base64;
 window.width = width;
 window.height = height;
 window.vw = vw;

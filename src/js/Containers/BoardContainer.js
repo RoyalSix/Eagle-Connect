@@ -23,10 +23,11 @@ class BoardContainer extends Component {
 
     getBoardMessageViews(messagesObj) {
         var messageArray = [];
+        var index = 0;
         for (var message in messagesObj) {
             var time = API.getTimeFromDateObject(new Date(messagesObj[message].time));
             messageArray.push(
-                <View key={`${time}_${message}`} style={{ borderColor: 'white', borderBottomWidth: .2, justifyContent: 'center' }}>
+                <View ref={index} key={`${time}_${message}`} style={{ borderColor: 'white', borderBottomWidth: .2, justifyContent: 'center' }}>
                     <Text style={{ marginHorizontal: 5, color: '#E0E0E0', textAlign: 'left', marginTop: 5 }}>{messagesObj[message].username}</Text>
                     <View style={{ flexDirection: 'row', }}>
                         <Text numberOfLines={3} style={{ color: 'grey', marginHorizontal: 5, marginBottom: 5, flex: 1 }}>{messagesObj[message].message}</Text>
@@ -34,6 +35,7 @@ class BoardContainer extends Component {
                     </View>
                 </View>
             )
+            index++;
         }
         return messageArray;
     }
