@@ -1,4 +1,4 @@
-package com.eagleconnect;
+package com.applia.eagleconnect;
 
 import android.app.Application;
 import android.util.Log;

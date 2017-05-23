@@ -1,4 +1,4 @@
-package com.eagleconnect;
+package com.applia.eagleconnect;
 
 import com.facebook.react.ReactActivity;
 import android.content.Intent;
