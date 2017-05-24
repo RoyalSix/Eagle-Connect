@@ -64,12 +64,13 @@ export default class DiningContainer extends Component {
                     _this.refs.listView.scrollTo({ y: fy })
                 })
             }
-        }, 200)
+        }, 100)
     }
 
     render() {
         return (
             <ListView
+                initialListSize={30}
                 ref="listView"
                 style={style.chapelContainer}
                 dataSource={this.props.dataSource}
