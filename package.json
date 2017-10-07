@@ -2,19 +2,32 @@
   "name": "EagleConnect",
   "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "react-native-scripts": "1.5.0",
+    "jest-expo": "^21.0.2",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "new-ios": "sudo gem install cocoapods && sudo npm install -g react-native-cli && npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && cd ios && pod install && cd ../ && react-native run-ios && echo '\n\nIOS SIMULATOR IS NOW RUNNING.\nYOU MAY NEED TO PRESS RELAOD (CMD + R) IF THE APP IS AT A RED SCREEN.'"
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "new-ios": "sudo gem install cocoapods && sudo npm install -g react-native-cli && npm install && sudo cp -R ios/FacebookSDK/ ~/Documents/FacebookSDK && react-native link && cd ios && pod install && cd ../ && react-native run-ios && echo '\n\nIOS SIMULATOR IS NOW RUNNING.\nYOU MAY NEED TO PRESS RELAOD (CMD + R) IF THE APP IS AT A RED SCREEN.'"    
+  },
+  "jest": {
+    "preset": "jest-expo"
   },
   "dependencies": {
+    "expo": "^21.0.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.48.4",
     "@google-cloud/debug-agent": "^1.0.0",
     "badwords-list": "^1.0.0",
     "base-64": "^0.1.0",
     "cheerio": "^0.22.0",
     "firebase": "^3.9.0",
-    "react": "15.4.2",
-    "react-native": "0.41.2",
     "react-native-fbsdk": "^0.5.0",
     "react-native-html-parser": "0.0.4",
     "react-native-scrollable-tab-view": "^0.7.3",
@@ -23,32 +36,5 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "util": "^0.10.3"
-  },
-  "jest": {
-    "preset": "react-native",
-    "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
-    },
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react",
-      "<rootDir>/node_modules/react-dom",
-      "<rootDir>/node_modules/react-addons-test-utils",
-      "<rootDir>/node_modules/fbjs"
-    ]
-  },
-  "devDependencies": {
-    "babel-jest": "^19.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "jest": "19.0.2",
-    "jest-cli": "^19.0.2",
-    "react-addons-test-utils": "^15.4.2",
-    "react-test-renderer": "15.4.2",
-    "should": "^11.2.1"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
   }
 }
